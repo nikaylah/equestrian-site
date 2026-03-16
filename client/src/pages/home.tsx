@@ -14,7 +14,13 @@ function ExperienceCard({
   const isSecondary = variant === "secondary";
   
   return (
-    <Card className={`group flex h-full flex-col overflow-visible border-accent/30 hover-elevate active-elevate-2 transition-all duration-300`}>
+    <Card
+      className={`group flex h-full flex-col overflow-visible hover-elevate active-elevate-2 transition-all duration-300 ${
+        isSecondary
+          ? "border-accent/30"
+          : "border-[#c8b99a]/60 border-t-[3px] border-t-[#b5603a] bg-[#faf7f2]"
+      }`}
+    >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
         <img
           src={experience.image}
@@ -34,7 +40,7 @@ function ExperienceCard({
       </div>
       <CardContent className={`flex flex-1 flex-col p-5 sm:p-6 ${isSecondary ? "bg-muted/20" : ""}`}>
         <h3 
-          className={`mb-2 text-lg sm:text-xl font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
+          className={`mb-2 text-[20px] font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
           data-testid={`text-experience-title-${experience.id}`}
         >
           {experience.title}
@@ -59,8 +65,8 @@ function ExperienceCard({
         ) : (
           <Link href={experience.buttonLink}>
             <Button 
-              variant="default"
-              className="w-full"
+              variant="outline"
+              className="mx-auto w-auto border-[#b5603a] bg-transparent text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
               data-testid={`button-${experience.buttonText.toLowerCase().replace(" ", "-")}-${experience.id}`}
             >
               {experience.buttonText}
@@ -83,11 +89,11 @@ export default function Home() {
             alt="Horse standing in barn aisle"
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.45),rgba(0,0,0,0.2))]" />
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-10 md:pb-14">
           <h1 
-            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl md:text-[56px] font-semibold text-white leading-tight max-w-2xl"
             data-testid="text-hero-title"
           >
             A space that was made for you.
@@ -98,7 +104,7 @@ export default function Home() {
           >
             Women only sessions at trusted barns across Minnesota. No experience needed, most women who come have never ridden before.
           </p>
-          <p className="mt-3 max-w-lg text-sm font-light text-white/65">
+          <p className="mt-3 max-w-lg text-[12px] font-light uppercase tracking-[8px] text-white/65">
             A women led, women only experience.
           </p>
           <Link href="/experiences">
@@ -112,16 +118,16 @@ export default function Home() {
       {/* Breathing space - a quiet moment */}
       <section className="py-[80px]">
         <div className="mx-auto max-w-[680px] px-4 text-center sm:px-6">
-          <p className="text-[20px] text-muted-foreground leading-relaxed">
+          <p className="text-[19px] text-muted-foreground leading-relaxed">
             We run beginner friendly riding weeks at a few barns we trust. You don't need any experience. Most people who come are trying this for the first time.
           </p>
-          <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed">
+          <p className="mt-4 font-serif text-[22px] leading-relaxed text-[#b5603a]">
             Most women who come have never been on a horse before.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#e8ede6] py-14 md:py-16">
+      <section className="bg-[#e8ede6] py-[80px]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <div className="grid gap-8 md:grid-cols-3">
             {[
@@ -129,9 +135,12 @@ export default function Home() {
               ["The group", "Small enough that you will never feel lost."],
               ["The expectation", "There is none. Come as you are."],
             ].map(([label, description]) => (
-              <div key={label} className="space-y-2 text-center md:text-left">
-                <p className="text-sm text-[#b5603a]">{label}</p>
-                <p className="text-lg text-foreground">{description}</p>
+              <div
+                key={label}
+                className="space-y-3 border-t border-[rgba(181,96,58,0.2)] pt-5 text-center md:text-left"
+              >
+                <p className="text-[11px] uppercase tracking-[2px] text-[#b5603a]">{label}</p>
+                <p className="text-[17px] text-foreground">{description}</p>
               </div>
             ))}
           </div>
@@ -156,10 +165,11 @@ export default function Home() {
       {/* Closing - spacious, unhurried */}
       <section className="pt-[60px] pb-20 md:pb-28">
         <div className="mx-auto max-w-xl px-4 sm:px-6 text-center">
-          <p className="mb-4 text-[14px] text-[#b5603a]">
+          <div className="mx-auto mb-4 h-px w-[60px] bg-[#b5603a]" />
+          <p className="text-[14px] text-[#b5603a]">
             Women led · Women only · Minnesota
           </p>
-          <h2 className="mb-4 text-2xl sm:text-3xl font-medium text-foreground" data-testid="text-cta-title">
+          <h2 className="mb-4 mt-5 text-[40px] font-medium leading-tight text-foreground" data-testid="text-cta-title">
             Whenever you are ready, we will be here.
           </h2>
           <p className="mb-8 text-muted-foreground" data-testid="text-cta-subtitle">
