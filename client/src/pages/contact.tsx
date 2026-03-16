@@ -58,7 +58,10 @@ export default function Contact() {
 
       {/* Contact Form - simpler, no card wrapper */}
       <section className="pb-16 md:pb-24">
-        <div className="mx-auto max-w-md px-4 sm:px-6">
+        <div className="mx-auto max-w-[560px] px-4 sm:px-6">
+          <p className="mb-8 text-center text-[16px] italic text-[#b5603a]">
+            There are no wrong questions here.
+          </p>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
@@ -114,7 +117,11 @@ export default function Contact() {
             </form>
           </Form>
 
-          <p className="mt-8 text-center text-sm text-muted-foreground/70" data-testid="text-response-time">
+          <p
+            className="mt-8 text-center text-[15px] text-[rgba(61,53,48,0.7)]"
+            data-testid="text-response-time"
+          >
+            <span className="mr-2 inline-block text-[#b5603a]">-</span>
             We read every message.
           </p>
         </div>

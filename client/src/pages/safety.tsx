@@ -91,9 +91,14 @@ export default function Safety() {
           </h2>
           <div className="space-y-3 text-muted-foreground">
             {whatToWear.map((item, i) => (
-              <p key={i} data-testid={`text-wear-item-${i + 1}`}>
-                {item}
-              </p>
+              <div
+                key={i}
+                className="flex items-start gap-3 leading-[2]"
+                data-testid={`text-wear-item-${i + 1}`}
+              >
+                <span className="mt-[0.7em] h-2.5 w-2.5 rounded-full bg-[#b5603a]" />
+                <p>{item}</p>
+              </div>
             ))}
           </div>
           <p className="mt-8 text-sm text-muted-foreground/70">

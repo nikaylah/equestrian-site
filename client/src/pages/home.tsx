@@ -3,7 +3,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { womenExperiences, kidsTeensExperiences } from "@/data/experiences";
-import { ArrowRight } from "lucide-react";
 
 function ExperienceCard({ 
   experience, 
@@ -102,29 +101,46 @@ export default function Home() {
           <p className="mt-3 max-w-lg text-sm font-light text-white/65">
             A women led, women only experience.
           </p>
+          <Link href="/experiences">
+            <Button className="mt-6" data-testid="button-hero-see-upcoming">
+              See What's Coming Up
+            </Button>
+          </Link>
         </div>
       </section>
 
       {/* Breathing space - a quiet moment */}
-      <section className="py-16 md:py-24">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+      <section className="py-[80px]">
+        <div className="mx-auto max-w-[680px] px-4 text-center sm:px-6">
+          <p className="text-[20px] text-muted-foreground leading-relaxed">
             We run beginner friendly riding weeks at a few barns we trust. You don't need any experience. Most people who come are trying this for the first time.
           </p>
+          <p className="mt-4 text-[20px] text-muted-foreground leading-relaxed">
+            Most women who come have never been on a horse before.
+          </p>
+        </div>
+      </section>
+
+      <section className="bg-[#e8ede6] py-14 md:py-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[
+              ["The pace", "No rushing. Ever."],
+              ["The group", "Small enough that you will never feel lost."],
+              ["The expectation", "There is none. Come as you are."],
+            ].map(([label, description]) => (
+              <div key={label} className="space-y-2 text-center md:text-left">
+                <p className="text-sm text-[#b5603a]">{label}</p>
+                <p className="text-lg text-foreground">{description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* For Women - tighter, focused */}
       <section className="pb-16 md:pb-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-10 md:mb-12">
-            <h2 
-              className="text-2xl sm:text-3xl font-medium text-foreground"
-              data-testid="text-women-section-title"
-            >
-              For Women
-            </h2>
-          </div>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {womenExperiences.map((experience) => (
               <ExperienceCard 
@@ -137,45 +153,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* For Kids & Teens - quieter, less structured */}
-      <section className="bg-accent/10 py-14 md:py-20">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="mb-10 max-w-md">
-            <p className="text-sm text-muted-foreground/70 mb-2">Coming Late 2026</p>
-            <h2 
-              className="text-xl sm:text-2xl font-medium text-muted-foreground"
-              data-testid="text-kids-section-title"
-            >
-              For Kids and Teens
-            </h2>
-            <p className="mt-3 text-muted-foreground/70" data-testid="text-kids-coming-soon">
-              We are putting together some programs for younger riders. Not ready yet but getting closer.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {kidsTeensExperiences.map((experience) => (
-              <ExperienceCard 
-                key={experience.id} 
-                experience={experience} 
-                variant="secondary"
-              />
-            ))}
-          </div>
-          <p className="mt-8 text-sm text-muted-foreground/60">
-            Interested? <Link href="/contact" className="underline hover:text-foreground transition-colors">Let us know</Link> and we will send you details when they are ready.
-          </p>
-        </div>
-      </section>
-
       {/* Closing - spacious, unhurried */}
-      <section className="py-20 md:py-28">
+      <section className="pt-[60px] pb-20 md:pb-28">
         <div className="mx-auto max-w-xl px-4 sm:px-6 text-center">
-          <p className="text-muted-foreground mb-8" data-testid="text-cta-title">
-            If this sounds like what you have been looking for we would love to have you.
+          <p className="mb-4 text-[14px] text-[#b5603a]">
+            Women led · Women only · Minnesota
+          </p>
+          <h2 className="mb-4 text-2xl sm:text-3xl font-medium text-foreground" data-testid="text-cta-title">
+            Whenever you are ready, we will be here.
+          </h2>
+          <p className="mb-8 text-muted-foreground" data-testid="text-cta-subtitle">
+            Sessions fill up quickly. Take a look at what is coming up.
           </p>
           <Link href="/experiences">
             <Button data-testid="button-view-upcoming-events">
-              See What's Coming Up
+              Find Your Session
             </Button>
           </Link>
         </div>
