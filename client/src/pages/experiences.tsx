@@ -28,7 +28,7 @@ export default function Experiences() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h1 
-            className="mb-5 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-5 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-experiences-title"
           >
             Upcoming Sessions
@@ -37,7 +37,7 @@ export default function Experiences() {
             className="text-lg text-muted-foreground leading-relaxed"
             data-testid="text-experiences-subtitle"
           >
-            We schedule sessions throughout the year. Small groups with plenty of space.
+            Small groups. Slow pace. A space where you can actually breathe.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ export default function Experiences() {
                 {featuredEvent.dateLabel}
               </p>
               <h2 
-                className="mb-4 text-2xl sm:text-3xl font-semibold text-foreground"
+                className="mb-4 text-2xl sm:text-3xl font-medium text-foreground"
                 data-testid="text-featured-title"
               >
                 {featuredEvent.title}
@@ -87,7 +87,7 @@ export default function Experiences() {
       <section className="bg-accent/10 py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-10 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-10 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-upcoming-title"
           >
             More Sessions
@@ -99,7 +99,7 @@ export default function Experiences() {
                   {event.dateLabel}
                 </p>
                 <h3 
-                  className="text-lg font-medium text-foreground mb-2"
+                  className="text-lg font-normal text-foreground mb-2"
                   data-testid={`text-event-title-${event.id}`}
                 >
                   {event.title}

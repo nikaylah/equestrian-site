@@ -22,9 +22,9 @@ export function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
         <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-            <span className="font-serif text-lg font-bold text-primary-foreground">C</span>
+            <span className="font-serif text-lg font-semibold text-primary-foreground">C</span>
           </div>
-          <span className="font-serif text-xl font-bold text-foreground">Crescent Stables</span>
+          <span className="font-serif text-xl font-semibold text-foreground">Crescent Stables</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
@@ -59,7 +59,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="mb-8 mt-4">
-                <span className="font-serif text-xl font-bold text-foreground">Crescent Stables</span>
+                <span className="font-serif text-xl font-semibold text-foreground">Crescent Stables</span>
               </div>
               <nav className="flex flex-col gap-2" data-testid="nav-mobile">
                 {navLinks.map((link) => {

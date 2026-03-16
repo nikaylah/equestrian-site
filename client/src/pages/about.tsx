@@ -19,7 +19,7 @@ export default function About() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h1 
-            className="mb-6 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-6 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-about-title"
           >
             About Crescent Stables
@@ -58,7 +58,7 @@ export default function About() {
             {approachItems.map((item, i) => (
               <div key={i}>
                 <h3 
-                  className="mb-2 text-lg font-medium text-foreground"
+                  className="mb-2 text-lg font-normal text-foreground"
                   data-testid={`text-approach-title-${i + 1}`}
                 >
                   {item.title}

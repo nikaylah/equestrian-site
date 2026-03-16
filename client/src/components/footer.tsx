@@ -11,18 +11,18 @@ const footerLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-accent/20 bg-card">
+    <footer className="border-t border-accent/30 bg-sage/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 py-12 md:py-16">
         <div className="grid grid-cols-1 gap-10 md:gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4 sm:col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2" data-testid="link-footer-logo">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                <span className="font-serif text-lg font-bold text-primary-foreground">C</span>
+                <span className="font-serif text-lg font-semibold text-primary-foreground">C</span>
               </div>
-              <span className="font-serif text-xl font-bold text-foreground">Crescent Stables</span>
+              <span className="font-serif text-xl font-semibold text-foreground">Crescent Stables</span>
             </Link>
             <p className="max-w-sm text-muted-foreground">
-              A gentle, supportive space for women to connect with horses at their own pace. Hosted through trusted partner barns in Minnesota.
+              A women led space where you can slow down, connect and feel completely at home.
             </p>
           </div>
 

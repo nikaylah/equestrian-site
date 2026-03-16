@@ -13,14 +13,14 @@ export default {
       colors: {
         // Custom design system colors
         navy: {
-          DEFAULT: "hsl(215 50% 20% / <alpha-value>)",
-          light: "hsl(215 45% 35% / <alpha-value>)",
-          dark: "hsl(215 55% 15% / <alpha-value>)",
+          DEFAULT: "hsl(24 12% 21% / <alpha-value>)",
+          light: "hsl(24 10% 34% / <alpha-value>)",
+          dark: "hsl(24 14% 16% / <alpha-value>)",
         },
         sage: {
-          DEFAULT: "hsl(145 25% 75% / <alpha-value>)",
-          light: "hsl(145 20% 85% / <alpha-value>)",
-          dark: "hsl(145 30% 55% / <alpha-value>)",
+          DEFAULT: "hsl(132 20% 62% / <alpha-value>)",
+          light: "hsl(132 20% 86% / <alpha-value>)",
+          dark: "hsl(132 18% 48% / <alpha-value>)",
         },
         cream: {
           DEFAULT: "hsl(40 40% 97% / <alpha-value>)",
@@ -98,7 +98,7 @@ export default {
         },
       },
       fontFamily: {
-        sans: ["Inter", "var(--font-sans)", "system-ui", "sans-serif"],
+        sans: ["Lato", "var(--font-sans)", "system-ui", "sans-serif"],
         serif: ["Playfair Display", "var(--font-serif)", "Georgia", "serif"],
         mono: ["var(--font-mono)"],
       },

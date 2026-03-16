@@ -35,7 +35,7 @@ function ExperienceCard({
       </div>
       <CardContent className={`flex flex-1 flex-col p-5 sm:p-6 ${isSecondary ? "bg-muted/20" : ""}`}>
         <h3 
-          className={`mb-2 text-lg sm:text-xl font-semibold ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
+          className={`mb-2 text-lg sm:text-xl font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
           data-testid={`text-experience-title-${experience.id}`}
         >
           {experience.title}
@@ -44,14 +44,19 @@ function ExperienceCard({
           {experience.description}
         </p>
         {isSecondary ? (
-          <Button 
-            variant="outline"
-            className="w-full text-muted-foreground"
-            disabled
-            data-testid={`button-notify-me-${experience.id}`}
-          >
-            Join Interest List
-          </Button>
+          <>
+            <Button 
+              variant="outline"
+              className="w-full text-muted-foreground"
+              disabled
+              data-testid={`button-notify-me-${experience.id}`}
+            >
+              Join Interest List
+            </Button>
+            <p className="mt-3 text-xs text-muted-foreground/75">
+              Crescent Stables is a women owned, women focused space.
+            </p>
+          </>
         ) : (
           <Link href={experience.buttonLink}>
             <Button 
@@ -83,16 +88,19 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-10 md:pb-14">
           <h1 
-            className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl md:text-5xl font-semibold text-white leading-tight max-w-2xl"
             data-testid="text-hero-title"
           >
-            Time with horses
+            A space that was made for you.
           </h1>
           <p 
             className="mt-4 text-base md:text-lg text-white/80 max-w-lg"
             data-testid="text-hero-subtitle"
           >
-            Small group sessions for women in Minnesota.
+            Women only sessions at trusted barns across Minnesota. No experience needed, most women who come have never ridden before.
+          </p>
+          <p className="mt-3 max-w-lg text-sm font-light text-white/65">
+            A women led, women only experience.
           </p>
         </div>
       </section>
@@ -111,7 +119,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 md:mb-12">
             <h2 
-              className="text-2xl sm:text-3xl font-semibold text-foreground"
+              className="text-2xl sm:text-3xl font-medium text-foreground"
               data-testid="text-women-section-title"
             >
               For Women
@@ -135,7 +143,7 @@ export default function Home() {
           <div className="mb-10 max-w-md">
             <p className="text-sm text-muted-foreground/70 mb-2">Coming Late 2026</p>
             <h2 
-              className="text-xl sm:text-2xl font-semibold text-muted-foreground"
+              className="text-xl sm:text-2xl font-medium text-muted-foreground"
               data-testid="text-kids-section-title"
             >
               For Kids and Teens

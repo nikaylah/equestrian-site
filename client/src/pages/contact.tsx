@@ -42,7 +42,7 @@ export default function Contact() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-xl px-4 sm:px-6">
           <h1 
-            className="mb-5 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-5 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-contact-title"
           >
             Get in Touch

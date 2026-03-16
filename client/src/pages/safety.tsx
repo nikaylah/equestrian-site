@@ -40,7 +40,7 @@ export default function Safety() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h1 
-            className="mb-6 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-6 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-safety-title"
           >
             Safety and Comfort
@@ -58,16 +58,23 @@ export default function Safety() {
       <section className="bg-accent/10 py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-8 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-8 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-what-to-expect-title"
           >
             What to Expect
           </h2>
-          <div className="space-y-5">
+          <div className="grid gap-4 sm:grid-cols-2">
             {whatToExpect.map((item, i) => (
-              <p key={i} className="text-foreground/90 leading-relaxed" data-testid={`text-expect-item-${i + 1}`}>
-                {item}
-              </p>
+              <div
+                key={i}
+                className="rounded-xl bg-[#f5f0e8] p-5 shadow-[0_8px_20px_rgba(61,53,48,0.08)]"
+                data-testid={`text-expect-item-${i + 1}`}
+              >
+                <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm text-primary">
+                  {i + 1}
+                </div>
+                <p className="text-foreground/90 leading-relaxed">{item}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -77,7 +84,7 @@ export default function Safety() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-6 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-6 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-what-to-wear-title"
           >
             What to Wear
@@ -114,7 +121,7 @@ export default function Safety() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-10 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-10 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-faq-title"
           >
             Questions We Hear Often
@@ -123,7 +130,7 @@ export default function Safety() {
             {faqs.map((faq, i) => (
               <div key={i}>
                 <h3 
-                  className="mb-3 text-base font-medium text-foreground"
+                  className="mb-3 text-base font-normal text-foreground"
                   data-testid={`text-faq-question-${i + 1}`}
                 >
                   {faq.question}
@@ -136,6 +143,22 @@ export default function Safety() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-accent/10 py-[60px]">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <div className="border-l-4 border-[#b5603a] bg-[#f5f0e8]/55 pl-6 sm:pl-8">
+            <h2 className="mb-6 text-xl sm:text-2xl font-medium text-foreground">
+              Social Safety
+            </h2>
+            <p className="text-[18px] text-foreground/90 leading-relaxed">
+              Crescent Stables is a closed, women only environment. Sessions are
+              small and intentionally kept that way. You will not be placed with
+              strangers who don't share this space's values. Our goal is that you
+              feel as comfortable on your first day as you do on your last.
+            </p>
           </div>
         </div>
       </section>

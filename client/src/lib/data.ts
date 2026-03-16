@@ -103,7 +103,7 @@ export const womenExperiences: HorseExperience[] = [
       "You spend the week at the barn with us. We cover groundwork and riding basics but there is no rush. Most of the time you are just being with the horses.",
     image:
       "https://images.unsplash.com/photo-1576692192914-9abed71b3ef9?w=800&q=80",
-    buttonText: "See Sessions",
+    buttonText: "Join This Experience",
     buttonLink: "/experiences",
   },
   {
@@ -113,7 +113,7 @@ export const womenExperiences: HorseExperience[] = [
       "If you have never ridden before this is a good place to start. We spend the first couple days just getting comfortable around horses.",
     image:
       "https://images.unsplash.com/photo-1621879174909-06769034c7fd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    buttonText: "See Sessions",
+    buttonText: "Join This Experience",
     buttonLink: "/experiences",
   },
   {
@@ -123,7 +123,7 @@ export const womenExperiences: HorseExperience[] = [
       "Two days on horseback out on the trails. This one works best if you have ridden a few times before.",
     image:
       "https://images.unsplash.com/photo-1576692194458-ea3f97b227af?w=800&q=80",
-    buttonText: "See Sessions",
+    buttonText: "Join This Experience",
     buttonLink: "/experiences",
   },
 ];
