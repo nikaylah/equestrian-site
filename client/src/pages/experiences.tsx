@@ -29,15 +29,41 @@ export default function Experiences() {
           <p className="text-lg text-muted-foreground leading-relaxed">
             We run small group sessions throughout the year at trusted partner barns across Minnesota. Most women who come start with Beginner Riding Week — no experience needed.
           </p>
-          <p className="mx-4 mt-5 text-[15px] text-foreground/70 leading-relaxed">
+          <p className="mt-5 text-center text-[#b5603a]">—</p>
+          <p className="mx-4 mt-2 text-[15px] italic text-foreground/70 leading-relaxed">
             Sessions take place at partner barns across Minnesota. We share the exact location once you sign up — we keep it this way to maintain a small, private environment.
           </p>
         </div>
       </section>
 
+      <section className="py-10">
+        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
+          <div className="mx-auto max-w-[640px] border-y border-[#b5603a]/60 py-6 text-center">
+            <div className="space-y-2 text-[15px] leading-relaxed">
+              <p>
+                <span className="font-semibold text-[#b5603a]">Never ridden before?</span>{" "}
+                Start with Beginner Riding Week
+              </p>
+              <p>
+                <span className="font-semibold text-[#b5603a]">
+                  Want to really slow down and connect?
+                </span>{" "}
+                Horsemanship Week is a full week at the barn
+              </p>
+              <p>
+                <span className="font-semibold text-[#b5603a]">
+                  Already ridden a few times?
+                </span>{" "}
+                Trail Experience gets you out on the trails
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Page Header - spacious, simple */}
-      <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+      <section className="pt-[60px] pb-14 md:pb-20">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <h1 
             className="mb-5 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-experiences-title"
@@ -59,16 +85,16 @@ export default function Experiences() {
             {upcomingEvents.map((event) => (
               <article
                 key={event.id}
-                className="rounded-xl border border-[#c8b99a]/70 bg-[#f5f0e8] px-6 py-6 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
+                className="rounded-xl border border-[#c8b99a]/70 border-l-[3px] border-l-[#b5603a] bg-[#faf7f2] px-8 py-8 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
               >
                 <p
-                  className="mb-2 text-sm text-muted-foreground"
+                  className="mb-2 text-[13px] text-[#b5603a]"
                   data-testid={`text-event-date-${event.id}`}
                 >
                   {event.dateLabel}
                 </p>
                 <h2
-                  className="mb-3 text-2xl font-medium text-foreground"
+                  className="mb-3 text-[22px] font-medium text-foreground"
                   data-testid={`text-event-title-${event.id}`}
                 >
                   {event.title}
@@ -83,7 +109,7 @@ export default function Experiences() {
                   <div className="min-h-6">
                     {event.spotsLeft ? (
                       <p
-                        className="text-sm text-muted-foreground/80"
+                        className="text-[13px] italic text-foreground/60"
                         data-testid={`text-event-spots-${event.id}`}
                       >
                         {event.spotsLeft} spots remaining
