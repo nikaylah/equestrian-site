@@ -65,7 +65,7 @@ export default function Experiences() {
       <section className="pt-[60px] pb-14 md:pb-20">
         <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <h1 
-            className="mb-5 text-3xl sm:text-4xl font-semibold text-foreground"
+            className="mb-5 text-2xl sm:text-3xl font-semibold text-foreground"
             data-testid="text-experiences-title"
           >
             Upcoming Sessions

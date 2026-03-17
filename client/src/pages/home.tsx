@@ -93,7 +93,7 @@ export default function Home() {
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-10 md:pb-14">
           <h1 
-            className="text-3xl sm:text-4xl md:text-[56px] font-semibold text-white leading-tight max-w-2xl"
+            className="text-3xl sm:text-4xl md:text-[48px] font-semibold text-white leading-tight max-w-2xl"
             data-testid="text-hero-title"
           >
             A space that was made for you.
