@@ -43,13 +43,13 @@ export default function Safety() {
             className="mb-6 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-safety-title"
           >
-            Safety and Comfort
+            Before You Come
           </h1>
           <p 
             className="text-lg text-muted-foreground leading-relaxed"
             data-testid="text-safety-intro"
           >
-            Horses are large animals. It is normal to feel nervous around them at first. We take safety seriously but not in a clinical way. More in a thoughtful and reassuring way.
+            We want your first visit to feel easy. Here is what we want you to know before you arrive.
           </p>
         </div>
       </section>
@@ -63,17 +63,15 @@ export default function Safety() {
           >
             What to Expect
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="space-y-5">
             {whatToExpect.map((item, i) => (
               <div
                 key={i}
-                className="rounded-xl bg-[#f5f0e8] p-5 shadow-[0_8px_20px_rgba(61,53,48,0.08)]"
+                className="flex items-start gap-4"
                 data-testid={`text-expect-item-${i + 1}`}
               >
-                <div className="mb-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-sm text-primary">
-                  {i + 1}
-                </div>
-                <p className="text-foreground/90 leading-relaxed">{item}</p>
+                <span className="mt-[0.6em] h-2 w-2 shrink-0 rounded-full bg-[#b5603a]" />
+                <p className="text-[17px] text-foreground/90 leading-relaxed">{item}</p>
               </div>
             ))}
           </div>
@@ -101,24 +99,26 @@ export default function Safety() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-muted-foreground/70">
+          <p className="mt-8 text-[17px] text-muted-foreground leading-relaxed">
             You do not need riding boots. Most closed toe shoes with a small heel will work fine.
           </p>
         </div>
       </section>
 
       {/* Who It's For - Sage background, quieter */}
-      <section className="bg-accent/10 py-16 md:py-24">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+      <section className="bg-accent/10 py-[80px]">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <div className="mx-auto mb-8 h-px w-[60px] bg-[#b5603a]" />
           <p 
-            className="text-lg text-foreground/90 leading-relaxed"
+            className="font-serif text-[20px] text-foreground leading-relaxed"
             data-testid="text-who-its-for-description"
           >
             This is for women who are curious about horses but have little or no experience. Women who have wanted to try riding but never found the right environment. Women who are anxious and need things to go slower.
           </p>
-          <p className="mt-6 text-muted-foreground">
+          <p className="mt-6 font-serif text-[20px] text-foreground">
             If that sounds like you this is your space.
           </p>
+          <div className="mx-auto mt-8 h-px w-[60px] bg-[#b5603a]" />
         </div>
       </section>
 
@@ -133,9 +133,12 @@ export default function Safety() {
           </h2>
           <div className="space-y-10">
             {faqs.map((faq, i) => (
-              <div key={i}>
+              <div
+                key={i}
+                className={i === 0 ? "" : "border-t border-[#e8e0d5] pt-10"}
+              >
                 <h3 
-                  className="mb-3 text-base font-normal text-foreground"
+                  className="mb-3 text-base font-normal text-[#b5603a]"
                   data-testid={`text-faq-question-${i + 1}`}
                 >
                   {faq.question}

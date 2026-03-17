@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { ContactFormSection } from "@/components/contact-form-section";
 import { Link } from "wouter";
 
 const approachItems = [
@@ -39,6 +40,9 @@ export default function About() {
       {/* Mission - Sage background, more spacious */}
       <section className="bg-accent/10 py-16 md:py-24">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <h2 className="mb-4 text-[18px] font-medium text-foreground">
+            What this actually is.
+          </h2>
           <p 
             className="text-lg text-foreground/90 leading-relaxed"
             data-testid="text-mission-description"
@@ -87,7 +91,7 @@ export default function About() {
           >
             We do not own a barn. We work with a few local barns in Minnesota that we trust. Places with calm horses and instructors who share our approach.
           </p>
-          <p className="mt-5 text-foreground text-sm">
+          <p className="mt-5 text-foreground leading-relaxed">
             Every barn we work with has been personally vetted.
           </p>
         </div>
@@ -102,13 +106,26 @@ export default function About() {
           <Link href="/experiences">
             <Button
               variant="outline"
-              className="border-[#b5603a] text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
+              className="min-w-[220px] border-2 border-[#b5603a] text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
               data-testid="button-see-upcoming-sessions"
             >
               See Upcoming Sessions
             </Button>
           </Link>
         </div>
+      </section>
+
+      <section className="pb-16 md:pb-24">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
+          <div className="mx-auto mb-8 h-px w-full max-w-[560px] bg-[#e8e0d5]" />
+          <h2 className="mb-4 text-2xl sm:text-3xl font-medium text-foreground">
+            Have a question?
+          </h2>
+          <p className="mb-10 text-foreground leading-relaxed">
+            We are easy to reach. Send us a note and we will get back to you.
+          </p>
+        </div>
+        <ContactFormSection />
       </section>
     </div>
   );
