@@ -8,9 +8,6 @@ export default function Experiences() {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
 
-  const featuredEvent = upcomingEvents.find((e) => e.isFeatured);
-  const upcomingList = upcomingEvents.filter((e) => !e.isFeatured);
-
   const handleEmailSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
@@ -24,11 +21,51 @@ export default function Experiences() {
 
   return (
     <div>
+      <section className="pt-14 md:pt-20">
+        <div className="mx-auto max-w-[600px] px-4 text-center sm:px-6">
+          <h2 className="mb-4 text-2xl sm:text-3xl font-medium text-foreground">
+            Find your session.
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            We run small group sessions throughout the year at trusted partner barns across Minnesota. Most women who come start with Beginner Riding Week — no experience needed.
+          </p>
+          <p className="mt-5 text-center text-[#b5603a]">—</p>
+          <p className="mx-4 mt-2 text-[15px] italic text-foreground/70 leading-relaxed">
+            Sessions take place at partner barns across Minnesota. We share the exact location once you sign up — we keep it this way to maintain a small, private environment.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-10">
+        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
+          <div className="mx-auto max-w-[640px] border-y border-[#b5603a]/60 py-6 text-center">
+            <div className="space-y-3 text-[15px] leading-relaxed">
+              <p>
+                <span className="font-semibold text-[#b5603a]">Never ridden before?</span>{" "}
+                Start with Beginner Riding Week
+              </p>
+              <p>
+                <span className="font-semibold text-[#b5603a]">
+                  Want to really slow down and connect?
+                </span>{" "}
+                Horsemanship Week is a full week at the barn
+              </p>
+              <p>
+                <span className="font-semibold text-[#b5603a]">
+                  Already ridden a few times?
+                </span>{" "}
+                Trail Experience gets you out on the trails
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Page Header - spacious, simple */}
-      <section className="py-14 md:py-20">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+      <section className="pt-[60px] pb-14 md:pb-20">
+        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
           <h1 
-            className="mb-5 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-5 text-2xl sm:text-3xl font-semibold text-foreground"
             data-testid="text-experiences-title"
           >
             Upcoming Sessions
@@ -37,102 +74,69 @@ export default function Experiences() {
             className="text-lg text-muted-foreground leading-relaxed"
             data-testid="text-experiences-subtitle"
           >
-            We schedule sessions throughout the year. Small groups with plenty of space.
+            Small groups. Slow pace. A space where you can actually breathe.
           </p>
         </div>
       </section>
 
-      {/* Featured Event - simpler, less card-like */}
-      {featuredEvent && (
-        <section className="pb-14 md:pb-20">
-          <div className="mx-auto max-w-3xl px-4 sm:px-6">
-            <div className="mb-8">
-              <img
-                src={featuredEvent.image}
-                alt={featuredEvent.title}
-                className="w-full aspect-[16/9] object-cover rounded-lg"
-                loading="lazy"
-              />
-            </div>
-            <div className="max-w-xl">
-              <p className="text-sm text-muted-foreground mb-2" data-testid="text-featured-date">
-                {featuredEvent.dateLabel}
-              </p>
-              <h2 
-                className="mb-4 text-2xl sm:text-3xl font-semibold text-foreground"
-                data-testid="text-featured-title"
+      <section className="pb-14 md:pb-20">
+        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
+          <div className="space-y-6">
+            {upcomingEvents.map((event) => (
+              <article
+                key={event.id}
+                className="rounded-xl border border-[#c8b99a]/70 border-l-[3px] border-l-[#b5603a] bg-[#faf7f2] px-5 py-6 sm:px-8 sm:py-8 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
               >
-                {featuredEvent.title}
-              </h2>
-              <p 
-                className="mb-6 text-muted-foreground leading-relaxed"
-                data-testid="text-featured-description"
-              >
-                {featuredEvent.description}
-              </p>
-              <Button data-testid="button-reserve-spot">
-                Reserve Your Spot
-              </Button>
-              {featuredEvent.spotsLeft && featuredEvent.spotsLeft <= 4 && (
-                <p className="mt-4 text-sm text-muted-foreground/70">
-                  {featuredEvent.spotsLeft} spots remaining
-                </p>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Upcoming List - simpler, more breathing room */}
-      <section className="bg-accent/10 py-16 md:py-24">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <h2 
-            className="mb-10 text-xl sm:text-2xl font-semibold text-foreground"
-            data-testid="text-upcoming-title"
-          >
-            More Sessions
-          </h2>
-          <div className="space-y-10">
-            {upcomingList.map((event) => (
-              <div key={event.id} className="group">
-                <p className="text-sm text-muted-foreground/70 mb-1">
+                <p
+                  className="mb-2 text-[13px] text-[#b5603a]"
+                  data-testid={`text-event-date-${event.id}`}
+                >
                   {event.dateLabel}
                 </p>
-                <h3 
-                  className="text-lg font-medium text-foreground mb-2"
+                <h2
+                  className="mb-3 text-[22px] font-medium text-foreground"
                   data-testid={`text-event-title-${event.id}`}
                 >
                   {event.title}
-                </h3>
-                <p className="text-muted-foreground mb-3 leading-relaxed">
+                </h2>
+                <p
+                  className="mb-5 text-muted-foreground leading-relaxed"
+                  data-testid={`text-event-description-${event.id}`}
+                >
                   {event.description}
                 </p>
-                <button 
-                  className="text-sm text-foreground/70 underline hover:text-foreground transition-colors"
-                  data-testid={`button-learn-more-${event.id}`}
-                >
-                  Learn more
-                </button>
-              </div>
+                <p className="mb-5 text-[13px] italic text-foreground/60">
+                  Pricing shared after inquiry.
+                </p>
+                <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <div className="min-h-6">
+                    {event.spotsLeft ? (
+                      <p
+                        className="text-[13px] italic text-foreground/60"
+                        data-testid={`text-event-spots-${event.id}`}
+                      >
+                        {event.spotsLeft} spots remaining
+                      </p>
+                    ) : null}
+                  </div>
+                  <Button className="w-full sm:w-auto" data-testid={`button-reserve-spot-${event.id}`}>
+                    Reserve Your Spot
+                  </Button>
+                </div>
+              </article>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Note about location */}
-      <section className="py-12 md:py-16">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
-          <p className="text-muted-foreground leading-relaxed" data-testid="text-faq-location-answer">
-            Sessions take place at partner barns around Minnesota. We share the exact location after you sign up.
-          </p>
         </div>
       </section>
 
       {/* Email Capture - quieter */}
       <section className="bg-accent/10 py-16 md:py-20">
         <div className="mx-auto max-w-md px-4 sm:px-6">
-          <p className="mb-6 text-muted-foreground text-center">
-            Want to hear when new sessions are scheduled?
+          <p className="mb-2 text-center text-foreground">
+            Not ready yet?
+          </p>
+          <p className="mb-6 text-center text-muted-foreground">
+            We will reach out when new sessions open. No pressure.
           </p>
           <form onSubmit={handleEmailSubmit} className="flex flex-col gap-3 sm:flex-row">
             <Input
@@ -144,8 +148,8 @@ export default function Experiences() {
               className="flex-1"
               data-testid="input-email-signup"
             />
-            <Button type="submit" variant="outline" data-testid="button-join-list">
-              Notify Me
+            <Button type="submit" variant="outline" className="w-full sm:w-auto" data-testid="button-join-list">
+              Keep me posted
             </Button>
           </form>
         </div>

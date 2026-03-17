@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import pullQuoteImage from "../../../images/image5.jpeg";
 
 const whatToExpect = [
   "A calm introduction to the barn and the horses. No rushing.",
@@ -40,16 +42,16 @@ export default function Safety() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h1 
-            className="mb-6 text-3xl sm:text-4xl font-bold text-foreground"
+            className="mb-6 text-3xl sm:text-4xl font-semibold text-foreground"
             data-testid="text-safety-title"
           >
-            Safety and Comfort
+            Before You Come
           </h1>
           <p 
             className="text-lg text-muted-foreground leading-relaxed"
             data-testid="text-safety-intro"
           >
-            Horses are large animals. It is normal to feel nervous around them at first. We take safety seriously but not in a clinical way. More in a thoughtful and reassuring way.
+            We want your first visit to feel easy. Here is what we want you to know before you arrive.
           </p>
         </div>
       </section>
@@ -58,16 +60,21 @@ export default function Safety() {
       <section className="bg-accent/10 py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-8 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-8 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-what-to-expect-title"
           >
             What to Expect
           </h2>
           <div className="space-y-5">
             {whatToExpect.map((item, i) => (
-              <p key={i} className="text-foreground/90 leading-relaxed" data-testid={`text-expect-item-${i + 1}`}>
-                {item}
-              </p>
+              <div
+                key={i}
+                className="flex items-start gap-4"
+                data-testid={`text-expect-item-${i + 1}`}
+              >
+                <span className="mt-[0.6em] h-2 w-2 shrink-0 rounded-full bg-[#b5603a]" />
+                <p className="text-[17px] text-foreground/90 leading-relaxed">{item}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -77,36 +84,48 @@ export default function Safety() {
       <section className="py-12 md:py-16">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-6 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-6 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-what-to-wear-title"
           >
             What to Wear
           </h2>
           <div className="space-y-3 text-muted-foreground">
             {whatToWear.map((item, i) => (
-              <p key={i} data-testid={`text-wear-item-${i + 1}`}>
-                {item}
-              </p>
+              <div
+                key={i}
+                className="flex items-start gap-3 leading-[2]"
+                data-testid={`text-wear-item-${i + 1}`}
+              >
+                <span className="mt-[0.7em] h-2.5 w-2.5 rounded-full bg-[#b5603a]" />
+                <p>{item}</p>
+              </div>
             ))}
           </div>
-          <p className="mt-8 text-sm text-muted-foreground/70">
+          <p className="mt-8 text-[17px] text-muted-foreground leading-relaxed">
             You do not need riding boots. Most closed toe shoes with a small heel will work fine.
           </p>
         </div>
       </section>
 
       {/* Who It's For - Sage background, quieter */}
-      <section className="bg-accent/10 py-16 md:py-24">
-        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+      <section className="bg-accent/10 py-[80px]">
+        <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <img
+            src={pullQuoteImage}
+            alt="Woman with horse in a calm barn setting"
+            className="mb-10 h-[400px] w-full object-cover object-center"
+          />
+          <div className="mx-auto mb-8 h-px w-[60px] bg-[#b5603a]" />
           <p 
-            className="text-lg text-foreground/90 leading-relaxed"
+            className="font-serif text-[20px] text-foreground leading-relaxed"
             data-testid="text-who-its-for-description"
           >
             This is for women who are curious about horses but have little or no experience. Women who have wanted to try riding but never found the right environment. Women who are anxious and need things to go slower.
           </p>
-          <p className="mt-6 text-muted-foreground">
+          <p className="mt-6 font-serif text-[20px] text-foreground">
             If that sounds like you this is your space.
           </p>
+          <div className="mx-auto mt-8 h-px w-[60px] bg-[#b5603a]" />
         </div>
       </section>
 
@@ -114,16 +133,19 @@ export default function Safety() {
       <section className="py-14 md:py-20">
         <div className="mx-auto max-w-2xl px-4 sm:px-6">
           <h2 
-            className="mb-10 text-xl sm:text-2xl font-semibold text-foreground"
+            className="mb-10 text-xl sm:text-2xl font-medium text-foreground"
             data-testid="text-faq-title"
           >
             Questions We Hear Often
           </h2>
           <div className="space-y-10">
             {faqs.map((faq, i) => (
-              <div key={i}>
+              <div
+                key={i}
+                className={i === 0 ? "" : "border-t border-[#e8e0d5] pt-10"}
+              >
                 <h3 
-                  className="mb-3 text-base font-medium text-foreground"
+                  className="mb-3 text-base font-normal text-[#b5603a]"
                   data-testid={`text-faq-question-${i + 1}`}
                 >
                   {faq.question}
@@ -137,6 +159,41 @@ export default function Safety() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="bg-accent/10 py-[60px]">
+        <div className="mx-auto max-w-2xl px-4 sm:px-6">
+          <div className="border-l-4 border-[#b5603a] bg-[#f5f0e8]/55 pl-6 sm:pl-8">
+            <h2 className="mb-6 text-xl sm:text-2xl font-medium text-foreground">
+              Social Safety
+            </h2>
+            <p className="text-[18px] text-foreground/90 leading-relaxed">
+              Crescent Stables is a closed, women only environment. Sessions are
+              small and intentionally kept that way. You will not be placed with
+              strangers who don't share this space's values. Our goal is that you
+              feel as comfortable on your first day as you do on your last.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-[60px]">
+        <div className="mx-auto max-w-xl px-4 text-center sm:px-6">
+          <h2 className="text-[28px] font-medium text-foreground">
+            Ready to take a look?
+          </h2>
+          <p className="mt-4 text-[16px] text-foreground/70">
+            See what sessions are coming up and find one that feels right.
+          </p>
+          <Link href="/experiences">
+            <Button
+              variant="outline"
+              className="mt-8 min-w-[220px] border-2 border-[#b5603a] text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
+            >
+              See Upcoming Sessions
+            </Button>
+          </Link>
         </div>
       </section>
 

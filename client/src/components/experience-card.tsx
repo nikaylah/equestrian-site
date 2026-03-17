@@ -40,7 +40,7 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           <span className="font-medium">{experience.rating}</span>
           <span className="text-muted-foreground">({experience.reviews} reviews)</span>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-foreground line-clamp-1" data-testid={`text-experience-title-${experience.id}`}>
+        <h3 className="mb-2 text-lg font-medium text-foreground line-clamp-1" data-testid={`text-experience-title-${experience.id}`}>
           {experience.title}
         </h3>
         <p className="mb-4 text-sm text-muted-foreground line-clamp-2">
