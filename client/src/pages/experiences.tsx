@@ -39,7 +39,7 @@ export default function Experiences() {
       <section className="py-10">
         <div className="mx-auto max-w-[720px] px-4 sm:px-6">
           <div className="mx-auto max-w-[640px] border-y border-[#b5603a]/60 py-6 text-center">
-            <div className="space-y-2 text-[15px] leading-relaxed">
+            <div className="space-y-3 text-[15px] leading-relaxed">
               <p>
                 <span className="font-semibold text-[#b5603a]">Never ridden before?</span>{" "}
                 Start with Beginner Riding Week
@@ -85,7 +85,7 @@ export default function Experiences() {
             {upcomingEvents.map((event) => (
               <article
                 key={event.id}
-                className="rounded-xl border border-[#c8b99a]/70 border-l-[3px] border-l-[#b5603a] bg-[#faf7f2] px-8 py-8 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
+                className="rounded-xl border border-[#c8b99a]/70 border-l-[3px] border-l-[#b5603a] bg-[#faf7f2] px-5 py-6 sm:px-8 sm:py-8 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
               >
                 <p
                   className="mb-2 text-[13px] text-[#b5603a]"
@@ -105,7 +105,10 @@ export default function Experiences() {
                 >
                   {event.description}
                 </p>
-                <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <p className="mb-5 text-[13px] italic text-foreground/60">
+                  Pricing shared after inquiry.
+                </p>
+                <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-h-6">
                     {event.spotsLeft ? (
                       <p
@@ -116,7 +119,7 @@ export default function Experiences() {
                       </p>
                     ) : null}
                   </div>
-                  <Button data-testid={`button-reserve-spot-${event.id}`}>
+                  <Button className="w-full sm:w-auto" data-testid={`button-reserve-spot-${event.id}`}>
                     Reserve Your Spot
                   </Button>
                 </div>
@@ -145,7 +148,7 @@ export default function Experiences() {
               className="flex-1"
               data-testid="input-email-signup"
             />
-            <Button type="submit" variant="outline" data-testid="button-join-list">
+            <Button type="submit" variant="outline" className="w-full sm:w-auto" data-testid="button-join-list">
               Keep me posted
             </Button>
           </form>

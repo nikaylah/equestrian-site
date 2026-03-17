@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { womenExperiences, kidsTeensExperiences } from "@/data/experiences";
+import heroImage from "../../../images/image1.jpeg";
 
 function ExperienceCard({ 
   experience, 
@@ -85,15 +86,15 @@ export default function Home() {
       <section className="relative flex min-h-[50vh] md:min-h-[60vh] items-end overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1576692192914-9abed71b3ef9?w=1920&q=80"
+            src={heroImage}
             alt="Horse standing in barn aisle"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover object-[center_28%]"
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.45),rgba(0,0,0,0.2))]" />
         </div>
         <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-10 md:pb-14">
           <h1 
-            className="text-3xl sm:text-4xl md:text-[48px] font-semibold text-white leading-tight max-w-2xl"
+            className="max-w-[11ch] text-[32px] leading-[1.1] sm:max-w-2xl sm:text-4xl md:text-[48px] font-semibold text-white"
             data-testid="text-hero-title"
           >
             A space that was made for you.
@@ -129,7 +130,7 @@ export default function Home() {
 
       <section className="bg-[#e8ede6] py-[80px]">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="grid gap-8 md:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               ["The pace", "No rushing. Ever."],
               ["The group", "Small enough that you will never feel lost."],

@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ContactFormSection } from "@/components/contact-form-section";
 import { Link } from "wouter";
+import womenOnlyImage from "../../../images/image6.jpeg";
 
 const approachItems = [
   {
@@ -52,6 +53,9 @@ export default function About() {
           <p className="mt-6 text-foreground leading-relaxed">
             What we offer is simpler. Space to slow down and connect with a horse. Some people come once and that is enough. Others keep coming back. There is no agenda here.
           </p>
+          <p className="mt-6 text-foreground/80 italic leading-relaxed">
+            In practice, that looks like this.
+          </p>
         </div>
       </section>
 
@@ -68,7 +72,14 @@ export default function About() {
                   {item.title}
                 </h3>
                 {item.title === "Women only" && (
-                  <div className="mb-4 h-px w-16 bg-[#b5603a]" />
+                  <>
+                    <div className="mb-4 h-px w-16 bg-[#b5603a]" />
+                    <img
+                      src={womenOnlyImage}
+                      alt="Women with horse in a quiet outdoor setting"
+                      className="mb-6 h-[360px] w-full object-cover object-center"
+                    />
+                  </>
                 )}
                 <p 
                   className="text-foreground leading-relaxed"

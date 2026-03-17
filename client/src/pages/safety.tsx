@@ -1,4 +1,6 @@
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import pullQuoteImage from "../../../images/image5.jpeg";
 
 const whatToExpect = [
   "A calm introduction to the barn and the horses. No rushing.",
@@ -108,6 +110,11 @@ export default function Safety() {
       {/* Who It's For - Sage background, quieter */}
       <section className="bg-accent/10 py-[80px]">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6">
+          <img
+            src={pullQuoteImage}
+            alt="Woman with horse in a calm barn setting"
+            className="mb-10 h-[400px] w-full object-cover object-center"
+          />
           <div className="mx-auto mb-8 h-px w-[60px] bg-[#b5603a]" />
           <p 
             className="font-serif text-[20px] text-foreground leading-relaxed"
@@ -168,6 +175,25 @@ export default function Safety() {
               feel as comfortable on your first day as you do on your last.
             </p>
           </div>
+        </div>
+      </section>
+
+      <section className="py-[60px]">
+        <div className="mx-auto max-w-xl px-4 text-center sm:px-6">
+          <h2 className="text-[28px] font-medium text-foreground">
+            Ready to take a look?
+          </h2>
+          <p className="mt-4 text-[16px] text-foreground/70">
+            See what sessions are coming up and find one that feels right.
+          </p>
+          <Link href="/experiences">
+            <Button
+              variant="outline"
+              className="mt-8 min-w-[220px] border-2 border-[#b5603a] text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
+            >
+              See Upcoming Sessions
+            </Button>
+          </Link>
         </div>
       </section>
 

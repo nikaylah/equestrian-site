@@ -3,12 +3,11 @@ import { Link, useLocation } from "wouter";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/experiences", label: "Experiences" },
-  { href: "/safety", label: "Safety" },
+  { href: "/safety", label: "Before You Come" },
   { href: "/about", label: "About" },
 ];
 
@@ -18,12 +17,12 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-accent/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
             <span className="font-serif text-lg font-semibold text-primary-foreground">C</span>
           </div>
-          <span className="font-serif text-xl font-semibold text-foreground">Crescent Stables</span>
+          <span className="font-serif text-lg sm:text-xl font-semibold text-foreground">Crescent Stables</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
@@ -47,8 +46,6 @@ export function Navbar() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <ThemeToggle />
-
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon" data-testid="button-mobile-menu">
