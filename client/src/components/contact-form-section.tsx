@@ -48,14 +48,14 @@ export function ContactFormSection({ introText }: ContactFormSectionProps) {
   }
 
   return (
-    <div className="mx-auto max-w-[560px] px-4 sm:px-6">
+    <div className="mx-auto max-w-[560px] px-[var(--space-sm)] sm:px-[var(--space-md)]">
       {introText ? (
-        <p className="mb-8 text-center text-[16px] italic text-[#b5603a]">
+        <p className="mb-[var(--space-md)] text-center text-[16px] italic text-[#C05A35]">
           {introText}
         </p>
       ) : null}
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-[var(--space-md)]">
           <FormField
             control={form.control}
             name="name"
@@ -123,7 +123,7 @@ export function ContactFormSection({ introText }: ContactFormSectionProps) {
       </Form>
 
       <p
-        className="mt-8 text-center text-[14px] italic text-[rgba(61,53,48,0.65)]"
+        className="mt-[var(--space-md)] text-center text-[14px] italic text-[#4A3020]/65"
         data-testid="text-response-time"
       >
         We read every message.

@@ -13,13 +13,15 @@ function ExperienceCard({
   variant?: "primary" | "secondary";
 }) {
   const isSecondary = variant === "secondary";
+  const homeButtonText =
+    experience.title === "Beginner Riding Week" ? "Start here" : "See dates";
   
   return (
     <Card
       className={`group flex h-full flex-col overflow-visible hover-elevate active-elevate-2 transition-all duration-300 ${
         isSecondary
           ? "border-accent/30"
-          : "border-[#c8b99a]/60 border-t-[3px] border-t-[#b5603a] bg-[#faf7f2]"
+          : "border-[#E2D4C0]/60 border-t-[3px] border-t-[#C05A35] bg-[#FAF5EE]"
       }`}
     >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
@@ -39,14 +41,14 @@ function ExperienceCard({
           </Badge>
         )}
       </div>
-      <CardContent className={`flex flex-1 flex-col p-5 sm:p-6 ${isSecondary ? "bg-muted/20" : ""}`}>
+      <CardContent className={`flex flex-1 flex-col px-[var(--space-md)] pb-[var(--space-md)] pt-[var(--space-sm)] ${isSecondary ? "bg-muted/20" : ""}`}>
         <h3 
-          className={`mb-2 text-[20px] font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
+          className={`mb-[var(--space-xs)] text-[20px] font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
           data-testid={`text-experience-title-${experience.id}`}
         >
           {experience.title}
         </h3>
-        <p className="mb-5 flex-1 text-muted-foreground line-clamp-3 text-sm sm:text-base">
+        <p className="mb-[var(--space-md)] flex-1 text-muted-foreground text-[1.0625rem] leading-[1.7]">
           {experience.description}
         </p>
         {isSecondary ? (
@@ -59,7 +61,7 @@ function ExperienceCard({
             >
               Join Interest List
             </Button>
-            <p className="mt-3 text-xs text-muted-foreground/75">
+            <p className="mt-[var(--space-xs)] text-xs text-muted-foreground/75">
               Crescent Stables is a women owned, women focused space.
             </p>
           </>
@@ -67,10 +69,10 @@ function ExperienceCard({
           <Link href={experience.buttonLink}>
             <Button 
               variant="outline"
-              className="mx-auto w-auto border-[#b5603a] bg-transparent text-[#b5603a] hover:bg-transparent hover:text-[#b5603a]"
-              data-testid={`button-${experience.buttonText.toLowerCase().replace(" ", "-")}-${experience.id}`}
+              className="mx-auto w-auto border-[#C05A35] bg-transparent text-[#C05A35] hover:bg-transparent hover:text-[#C05A35]"
+              data-testid={`button-${homeButtonText.toLowerCase().replace(" ", "-")}-${experience.id}`}
             >
-              {experience.buttonText}
+              {homeButtonText}
             </Button>
           </Link>
         )}
@@ -92,7 +94,7 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.45),rgba(0,0,0,0.2))]" />
         </div>
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 pb-10 md:pb-14">
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-[var(--space-sm)] pb-[var(--space-lg)] sm:px-[var(--space-md)] md:pb-[var(--space-xl)]">
           <h1 
             className="max-w-[11ch] text-[32px] leading-[1.1] sm:max-w-2xl sm:text-4xl md:text-[48px] font-semibold text-white"
             data-testid="text-hero-title"
@@ -100,16 +102,13 @@ export default function Home() {
             A space that was made for you.
           </h1>
           <p 
-            className="mt-4 text-base md:text-lg text-white/80 max-w-lg"
+            className="mt-[var(--space-sm)] text-base md:text-lg text-white/80 max-w-lg"
             data-testid="text-hero-subtitle"
           >
-            Women only sessions at trusted barns across Minnesota. No experience needed, most women who come have never ridden before.
-          </p>
-          <p className="mt-3 max-w-lg text-[12px] font-light uppercase tracking-[8px] text-white/65">
-            A women led, women only experience.
+            Women only sessions at trusted barns across Minnesota. No experience needed.
           </p>
           <Link href="/experiences">
-            <Button className="mt-6" data-testid="button-hero-see-upcoming">
+            <Button className="mt-[var(--space-md)]" data-testid="button-hero-see-upcoming">
               See What's Coming Up
             </Button>
           </Link>
@@ -117,31 +116,31 @@ export default function Home() {
       </section>
 
       {/* Breathing space - a quiet moment */}
-      <section className="py-[80px]">
-        <div className="mx-auto max-w-[680px] px-4 text-center sm:px-6">
-          <p className="text-[19px] text-muted-foreground leading-relaxed">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-[680px] px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
+          <p className="text-[19px] text-muted-foreground leading-[1.7]">
             We run beginner friendly riding weeks at a few barns we trust. You don't need any experience. Most people who come are trying this for the first time.
           </p>
-          <p className="mt-4 font-serif text-[22px] leading-relaxed text-[#b5603a]">
-            Most women who come have never been on a horse before.
+          <p className="mt-[var(--space-md)] font-serif text-[22px] leading-[1.7] text-[#C05A35]">
+            This is not a riding school. It is a space to slow down.
           </p>
         </div>
       </section>
 
-      <section className="bg-[#e8ede6] py-[80px]">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <section className="bg-[#EFE6D8] py-[var(--space-xl)]">
+        <div className="mx-auto max-w-5xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
+          <div className="grid grid-cols-1 gap-[var(--space-md)] md:grid-cols-3">
             {[
-              ["The pace", "No rushing. Ever."],
-              ["The group", "Small enough that you will never feel lost."],
               ["The expectation", "There is none. Come as you are."],
+              ["The pace", "No rushing. Ever."],
+              ["The group", "Small enough that you always feel seen."],
             ].map(([label, description]) => (
               <div
                 key={label}
-                className="space-y-3 border-t border-[rgba(181,96,58,0.2)] pt-5 text-center md:text-left"
+                className="space-y-[var(--space-md)] text-center md:text-left"
               >
-                <p className="text-[11px] uppercase tracking-[2px] text-[#b5603a]">{label}</p>
-                <p className="text-[17px] text-foreground">{description}</p>
+                <p className="text-[11px] uppercase tracking-[2px] text-[#C05A35]">{label}</p>
+                <p className="text-[1.0625rem] leading-[1.7] text-foreground">{description}</p>
               </div>
             ))}
           </div>
@@ -149,9 +148,9 @@ export default function Home() {
       </section>
 
       {/* For Women - tighter, focused */}
-      <section className="pb-16 md:pb-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-7xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
+          <div className="grid gap-[var(--space-md)] md:grid-cols-2 lg:grid-cols-3">
             {womenExperiences.map((experience) => (
               <ExperienceCard 
                 key={experience.id} 
@@ -164,17 +163,17 @@ export default function Home() {
       </section>
 
       {/* Closing - spacious, unhurried */}
-      <section className="pt-[60px] pb-20 md:pb-28">
-        <div className="mx-auto max-w-xl px-4 sm:px-6 text-center">
-          <div className="mx-auto mb-4 h-px w-[60px] bg-[#b5603a]" />
-          <p className="text-[14px] text-[#b5603a]">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
+          <div className="mx-auto mb-[var(--space-sm)] h-px w-[60px] bg-[#C05A35]" />
+          <p className="text-[14px] text-[#C05A35]">
             Women led · Women only · Minnesota
           </p>
-          <h2 className="mb-4 mt-5 text-[40px] font-medium leading-tight text-foreground" data-testid="text-cta-title">
+          <h2 className="mb-[var(--space-sm)] mt-[var(--space-md)] text-[40px] font-medium leading-tight text-foreground" data-testid="text-cta-title">
             Whenever you are ready, we will be here.
           </h2>
-          <p className="mb-8 text-muted-foreground" data-testid="text-cta-subtitle">
-            Sessions fill up quickly. Take a look at what is coming up.
+          <p className="mb-[var(--space-md)] text-muted-foreground" data-testid="text-cta-subtitle">
+            Take a look at what is coming up.
           </p>
           <Link href="/experiences">
             <Button data-testid="button-view-upcoming-events">

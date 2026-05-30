@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import logo from "../assets/crescent-stables-logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -19,10 +20,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-accent/20 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2" data-testid="link-logo">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-            <span className="font-serif text-lg font-semibold text-primary-foreground">C</span>
-          </div>
-          <span className="font-serif text-lg sm:text-xl font-semibold text-foreground">Crescent Stables</span>
+          <img src={logo} alt="Crescent Stables" className="h-16 w-auto" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1" data-testid="nav-desktop">
@@ -55,7 +53,7 @@ export function Navbar() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="mb-8 mt-4">
-                <span className="font-serif text-xl font-semibold text-foreground">Crescent Stables</span>
+                <img src={logo} alt="Crescent Stables" className="h-16 w-auto" />
               </div>
               <nav className="flex flex-col gap-2" data-testid="nav-mobile">
                 {navLinks.map((link) => {

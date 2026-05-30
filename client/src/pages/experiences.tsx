@@ -21,37 +21,37 @@ export default function Experiences() {
 
   return (
     <div>
-      <section className="pt-14 md:pt-20">
-        <div className="mx-auto max-w-[600px] px-4 text-center sm:px-6">
-          <h2 className="mb-4 text-2xl sm:text-3xl font-medium text-foreground">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-[600px] px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
+          <h2 className="mb-[var(--space-sm)] text-2xl sm:text-3xl font-medium text-foreground">
             Find your session.
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-[1.7]">
             We run small group sessions throughout the year at trusted partner barns across Minnesota. Most women who come start with Beginner Riding Week — no experience needed.
           </p>
-          <p className="mt-5 text-center text-[#b5603a]">—</p>
-          <p className="mx-4 mt-2 text-[15px] italic text-foreground/70 leading-relaxed">
+          <p className="mt-[var(--space-md)] text-center text-[#C05A35]">—</p>
+          <p className="mx-[var(--space-sm)] mt-[var(--space-xs)] text-[15px] italic text-foreground/70 leading-[1.7]">
             Sessions take place at partner barns across Minnesota. We share the exact location once you sign up — we keep it this way to maintain a small, private environment.
           </p>
         </div>
       </section>
 
-      <section className="py-10">
-        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
-          <div className="mx-auto max-w-[640px] border-y border-[#b5603a]/60 py-6 text-center">
-            <div className="space-y-3 text-[15px] leading-relaxed">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-[720px] px-[var(--space-sm)] sm:px-[var(--space-md)]">
+          <div className="mx-auto max-w-[640px] border-y border-[#C05A35]/60 py-[var(--space-md)] text-center">
+            <div className="space-y-[var(--space-md)] text-[15px] leading-[1.7]">
               <p>
-                <span className="font-semibold text-[#b5603a]">Never ridden before?</span>{" "}
+                <span className="font-semibold text-[#C05A35]">Never ridden before?</span>{" "}
                 Start with Beginner Riding Week
               </p>
               <p>
-                <span className="font-semibold text-[#b5603a]">
+                <span className="font-semibold text-[#C05A35]">
                   Want to really slow down and connect?
                 </span>{" "}
                 Horsemanship Week is a full week at the barn
               </p>
               <p>
-                <span className="font-semibold text-[#b5603a]">
+                <span className="font-semibold text-[#C05A35]">
                   Already ridden a few times?
                 </span>{" "}
                 Trail Experience gets you out on the trails
@@ -62,16 +62,16 @@ export default function Experiences() {
       </section>
 
       {/* Page Header - spacious, simple */}
-      <section className="pt-[60px] pb-14 md:pb-20">
-        <div className="mx-auto max-w-2xl px-4 text-center sm:px-6">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-2xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
           <h1 
-            className="mb-5 text-2xl sm:text-3xl font-semibold text-foreground"
+            className="mb-[var(--space-md)] text-2xl sm:text-3xl font-semibold text-foreground"
             data-testid="text-experiences-title"
           >
             Upcoming Sessions
           </h1>
           <p 
-            className="text-lg text-muted-foreground leading-relaxed"
+            className="text-lg text-muted-foreground leading-[1.7]"
             data-testid="text-experiences-subtitle"
           >
             Small groups. Slow pace. A space where you can actually breathe.
@@ -79,36 +79,36 @@ export default function Experiences() {
         </div>
       </section>
 
-      <section className="pb-14 md:pb-20">
-        <div className="mx-auto max-w-[720px] px-4 sm:px-6">
-          <div className="space-y-6">
+      <section className="py-[var(--space-xl)]">
+        <div className="mx-auto max-w-[720px] px-[var(--space-sm)] sm:px-[var(--space-md)]">
+          <div className="space-y-[var(--space-md)]">
             {upcomingEvents.map((event) => (
               <article
                 key={event.id}
-                className="rounded-xl border border-[#c8b99a]/70 border-l-[3px] border-l-[#b5603a] bg-[#faf7f2] px-5 py-6 sm:px-8 sm:py-8 shadow-[0_10px_24px_rgba(61,53,48,0.06)]"
+                className="rounded-xl border border-[#E2D4C0]/70 border-l-[3px] border-l-[#C05A35] bg-[#FAF5EE] px-[var(--space-md)] py-[var(--space-md)] shadow-[0_10px_24px_rgba(74,48,32,0.06)]"
               >
                 <p
-                  className="mb-2 text-[13px] text-[#b5603a]"
+                  className="mb-[var(--space-xs)] text-[13px] text-[#C05A35]"
                   data-testid={`text-event-date-${event.id}`}
                 >
                   {event.dateLabel}
                 </p>
                 <h2
-                  className="mb-3 text-[22px] font-medium text-foreground"
+                  className="mb-[var(--space-sm)] text-[22px] font-medium text-foreground"
                   data-testid={`text-event-title-${event.id}`}
                 >
                   {event.title}
                 </h2>
                 <p
-                  className="mb-5 text-muted-foreground leading-relaxed"
+                  className="mb-[var(--space-md)] text-[1.0625rem] text-muted-foreground leading-[1.7]"
                   data-testid={`text-event-description-${event.id}`}
                 >
                   {event.description}
                 </p>
-                <p className="mb-5 text-[13px] italic text-foreground/60">
-                  Pricing shared after inquiry.
+                <p className="mb-[var(--space-md)] text-[13px] italic text-foreground/60">
+                  Pricing varies by session — we share all details when you reach out. No commitment required.
                 </p>
-                <div className="flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex flex-col items-stretch gap-[var(--space-sm)] sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-h-6">
                     {event.spotsLeft ? (
                       <p
@@ -130,15 +130,15 @@ export default function Experiences() {
       </section>
 
       {/* Email Capture - quieter */}
-      <section className="bg-accent/10 py-16 md:py-20">
-        <div className="mx-auto max-w-md px-4 sm:px-6">
-          <p className="mb-2 text-center text-foreground">
+      <section className="bg-accent/10 py-[var(--space-xl)]">
+        <div className="mx-auto max-w-md px-[var(--space-sm)] sm:px-[var(--space-md)]">
+          <p className="mb-[var(--space-xs)] text-center text-foreground">
             Not ready yet?
           </p>
-          <p className="mb-6 text-center text-muted-foreground">
+          <p className="mb-[var(--space-md)] text-center text-muted-foreground">
             We will reach out when new sessions open. No pressure.
           </p>
-          <form onSubmit={handleEmailSubmit} className="flex flex-col gap-3 sm:flex-row">
+          <form onSubmit={handleEmailSubmit} className="flex flex-col gap-[var(--space-sm)] sm:flex-row">
             <Input
               type="email"
               placeholder="Your email"

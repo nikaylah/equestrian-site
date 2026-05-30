@@ -40,10 +40,10 @@ export function ExperienceCard({ experience }: ExperienceCardProps) {
           <span className="font-medium">{experience.rating}</span>
           <span className="text-muted-foreground">({experience.reviews} reviews)</span>
         </div>
-        <h3 className="mb-2 text-lg font-medium text-foreground line-clamp-1" data-testid={`text-experience-title-${experience.id}`}>
+        <h3 className="mb-2 text-lg font-medium text-foreground" data-testid={`text-experience-title-${experience.id}`}>
           {experience.title}
         </h3>
-        <p className="mb-4 text-sm text-muted-foreground line-clamp-2">
+        <p className="mb-4 text-[1.0625rem] leading-[1.7] text-muted-foreground">
           {experience.description}
         </p>
         <div className="mb-4 flex items-center gap-4 text-sm text-muted-foreground">
