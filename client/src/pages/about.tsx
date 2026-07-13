@@ -1,142 +1,88 @@
-import { Button } from "@/components/ui/button";
-import { ContactFormSection } from "@/components/contact-form-section";
-import { Link } from "wouter";
-import womenOnlyImage from "../../../images/image6.jpeg";
+const principles = [
+  ["01", "What we're here for", "We are not trying to turn you into a competitive rider. That is not the point."],
+  ["02", "We take our time", "There is no rushing. We start with the basics like how to be around horses safely. Some people spend their whole first session just grooming."],
+  ["03", "A space of our own", "Every session is a small, close group. It changes the energy in a way that is hard to explain until you experience it."],
+];
 
-const approachItems = [
-  {
-    title: "We take our time",
-    description: "There is no rushing. We start with the basics like how to be around horses safely. Some people spend their whole first session just grooming.",
-  },
-  {
-    title: "Women only",
-    description: "All of our sessions are for women. It changes the energy in a way that is hard to explain until you experience it.",
-  },
+const testimonials = [
+  ["I showed up terrified of horses. By day three I was cantering on my own. I have never felt more capable in my life.", "Fatima A.", "Beginner Riding Week"],
+  ["I was so relieved to find a space where I could actually relax. The environment here made all the difference for me.", "Maryam K.", "Horsemanship Week"],
+  ["This is not a riding school. It is something else entirely. I left understanding myself better than when I arrived.", "Sarah J.", "Trail Experience"],
 ];
 
 export default function About() {
   return (
-    <div>
-      {/* Page Header - more breathing room */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <h1 
-            className="mb-[var(--space-md)] text-[3rem] font-semibold leading-[1.05] text-foreground"
-            data-testid="text-about-title"
-          >
-            About Crescent Stables
-          </h1>
-          <p 
-            className="text-lg text-foreground leading-[1.7]"
-            data-testid="text-about-intro"
-          >
-            I kept meeting women who wanted to try horses. Not to compete. Not to buy one. Just to be near them for an afternoon. That space didn't exist.
-          </p>
-          <p className="mt-[var(--space-lg)] text-[22px] leading-[1.7] text-[#C05A35]">
-            So I started one.
-          </p>
+    <>
+      <section className="ahero">
+        <div className="wrap ahero-grid">
+          <div>
+            <div className="eyebrow">About Crescent Stables</div>
+            <h1>I kept meeting people who wanted to <span className="accent">try horses.</span></h1>
+            <p className="sub">Not to compete. Not to buy one. Just to be near them for an afternoon. That space didn't exist.</p>
+            <div className="started">So I started one.</div>
+          </div>
+          <aside className="letter">
+            <span className="mono">A note from our founder</span>
+            <p>What we offer is simpler. Space to slow down and connect with a horse.</p>
+            <p>Some people come once and that is enough. Others keep coming back. <span className="accent">There is no agenda here.</span></p>
+            <p className="foot-note">In practice, that looks like this.</p>
+          </aside>
         </div>
       </section>
 
-      {/* Mission - Sage background, more spacious */}
-      <section className="bg-accent/10 py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <h2 className="mb-[var(--space-sm)] text-[1.375rem] font-medium text-foreground">
-            What we're here for.
-          </h2>
-          <p 
-            className="text-[1.0625rem] text-foreground/90 leading-[1.7]"
-            data-testid="text-mission-description"
-          >
-            We are not trying to turn you into a competitive rider. That is not the point.
-          </p>
-          <p className="mt-[var(--space-md)] text-foreground leading-[1.7]">
-            What we offer is simpler. Space to slow down and connect with a horse. Some people come once and that is enough. Others keep coming back. There is no agenda here.
-          </p>
-          <p className="mt-[var(--space-md)] text-foreground/80 italic leading-[1.7]">
-            In practice, that looks like this.
-          </p>
-        </div>
-      </section>
-
-      {/* Approach - Default background, tighter */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <div className="space-y-[var(--space-lg)]">
-            {approachItems.map((item, i) => (
-              <div key={i}>
-                <h3 
-                  className="mb-[var(--space-sm)] text-[1.375rem] font-medium text-foreground"
-                  data-testid={`text-approach-title-${i + 1}`}
-                >
-                  {item.title}
-                </h3>
-                {item.title === "Women only" && (
-                  <>
-                    <img
-                      src={womenOnlyImage}
-                      alt="Women with horse in a quiet outdoor setting"
-                      className="mb-[var(--space-md)] h-[360px] w-full object-cover object-center"
-                    />
-                  </>
-                )}
-                <p 
-                  className="text-foreground leading-[1.7]"
-                  data-testid={`text-approach-description-${i + 1}`}
-                >
-                  {item.description}
-                </p>
-              </div>
+      <section className="how">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <div className="eyebrow">How we work</div>
+              <h2 className="h2" style={{ marginTop: 20 }}>Three things<br />we protect.</h2>
+            </div>
+          </div>
+          <div className="how-grid">
+            {principles.map(([num, title, body]) => (
+              <article className="hcard" key={num}>
+                <span className="num">{num}</span>
+                <b>{title}</b>
+                <p>{body}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Partnership - Sage background, quieter */}
-      <section className="bg-accent/10 py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <p 
-            className="text-foreground leading-[1.7]"
-            data-testid="text-partnership-description"
-          >
-            We do not own a barn. We work with a few local barns in Minnesota that we trust. Places with calm horses and instructors who share our approach.
-          </p>
-          <p className="mt-[var(--space-md)] text-foreground leading-[1.7]">
-            Every barn we work with has been personally vetted.
-          </p>
+      <section className="barns">
+        <div className="wrap">
+          <div className="mk" aria-hidden="true">MN</div>
+          <div>
+            <h2>We do not own a barn. We work with a few local barns in Minnesota <span className="accent">that we trust.</span></h2>
+            <p>Places with calm horses and instructors who share our approach.</p>
+            <span className="vetted">Every barn personally vetted</span>
+          </div>
         </div>
       </section>
 
-      {/* CTA - more breathing room */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <h2 className="mb-[var(--space-md)] text-2xl sm:text-3xl font-medium text-foreground">
-            Come see what we mean.
-          </h2>
-          <Link href="/experiences">
-            <Button
-              variant="outline"
-              className="min-w-[220px] border-2 border-[#C05A35] text-[#C05A35] hover:bg-transparent hover:text-[#C05A35]"
-              data-testid="button-see-upcoming-sessions"
-            >
-              See Upcoming Sessions
-            </Button>
-          </Link>
+      <section className="voices">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <div className="eyebrow">In their words</div>
+              <h2 className="h2" style={{ marginTop: 20 }}>What people<br />take home.</h2>
+            </div>
+          </div>
+          <div className="v-grid">
+            {testimonials.map(([quote, name, detail], index) => (
+              <article className={`vcard ${index === 1 ? "hot" : ""}`} key={name}>
+                <span className="vq">”</span>
+                <p>{quote}</p>
+                <div className="vwho">
+                  <div className="av" aria-hidden="true" />
+                  <div><b>{name}</b><span>{detail}</span></div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <div className="mx-auto mb-[var(--space-md)] h-px w-full max-w-[560px] bg-[#E2D4C0]" />
-          <h2 className="mb-[var(--space-sm)] text-2xl sm:text-3xl font-medium text-foreground">
-            Have a question?
-          </h2>
-          <p className="mb-[var(--space-lg)] text-foreground leading-[1.7]">
-            We are easy to reach. Send us a note and we will get back to you.
-          </p>
-        </div>
-        <ContactFormSection />
-      </section>
-    </div>
+    </>
   );
 }

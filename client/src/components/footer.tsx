@@ -1,95 +1,61 @@
 import { Link } from "wouter";
-import { Mail, MapPin } from "lucide-react";
-import { SiInstagram, SiFacebook } from "react-icons/si";
-import logo from "../assets/crescent-stables-logo.png";
-
-const footerLinks = [
-  { href: "/experiences", label: "Experiences" },
-  { href: "/safety", label: "Before You Come" },
-  { href: "/about", label: "About" },
-];
+import fullWordmark from "../assets/full-wordmark.png";
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#5C7A5C] bg-[#5C7A5C]">
-      <div className="mx-auto max-w-7xl px-[var(--space-sm)] py-[var(--space-xl)] sm:px-[var(--space-md)]">
-        <div className="grid grid-cols-1 gap-[var(--space-lg)] sm:grid-cols-2 lg:grid-cols-4">
-          <div className="space-y-[var(--space-sm)] sm:col-span-2 lg:col-span-2">
-            <Link href="/" className="inline-flex" data-testid="link-footer-logo">
-              <img
-                src={logo}
-                alt="Crescent Stables"
-                className="h-12 w-auto"
-                style={{ filter: "brightness(0) invert(1)" }}
-              />
-            </Link>
-            <p className="max-w-sm text-[#F0EBE0]">
-              A women led space where you can slow down, connect and feel completely at home.
-            </p>
-          </div>
-
-          <div>
-            <h3 className="mb-[var(--space-sm)] text-sm font-semibold uppercase tracking-wider text-[#F0EBE0]">
-              Quick Links
-            </h3>
-            <ul className="space-y-[var(--space-sm)]">
-              {footerLinks.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-[#F0EBE0] transition-colors hover:text-[#F0EBE0]"
-                    data-testid={`link-footer-${link.label.toLowerCase()}`}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="mb-[var(--space-sm)] text-sm font-semibold uppercase tracking-wider text-[#F0EBE0]">
-              Get in Touch
-            </h3>
-            <div className="space-y-[var(--space-sm)] text-[#F0EBE0]">
-              <div className="flex items-center gap-[var(--space-xs)]" data-testid="text-footer-email">
-                <Mail className="h-4 w-4 text-[#F0EBE0]" />
-                <span>hello@crescentstables.com</span>
-              </div>
-              <div className="flex items-center gap-[var(--space-xs)]" data-testid="text-footer-location">
-                <MapPin className="h-4 w-4 text-[#F0EBE0]" />
-                <span>Minnesota</span>
-              </div>
-            </div>
-            <div className="mt-[var(--space-md)]">
-              <p className="mb-[var(--space-sm)] text-sm font-medium text-[#F0EBE0]">Follow Along</p>
-              <div className="flex gap-[var(--space-sm)]">
-                <a 
-                  href="#" 
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8BAF8B]/20 text-[#8BAF8B] transition-colors hover:bg-[#F0EBE0] hover:text-[#5C7A5C]"
-                  aria-label="Instagram"
-                  data-testid="link-footer-instagram"
-                >
-                  <SiInstagram className="h-4 w-4" />
-                </a>
-                <a 
-                  href="#" 
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#8BAF8B]/20 text-[#8BAF8B] transition-colors hover:bg-[#F0EBE0] hover:text-[#5C7A5C]"
-                  aria-label="Facebook"
-                  data-testid="link-footer-facebook"
-                >
-                  <SiFacebook className="h-4 w-4" />
-                </a>
-              </div>
-            </div>
-          </div>
+    <footer>
+      <div className="foot-crescent" aria-hidden="true" />
+      <div className="wrap foot-top">
+        <div className="mono" style={{ color: "var(--khaki)", marginBottom: 26 }}>
+          Whenever you're ready
         </div>
+        <h2 className="foot-h">
+          We will be <span className="accent">here.</span>
+        </h2>
+        <p className="foot-sub">
+          You don't need experience. You don't need to be athletic. You just need to show up. We take it from there.
+        </p>
+        <div className="foot-cta">
+          <Link href="/experiences" className="btn btn-camel on-dark btn-raise">
+            Find your session <span className="arrow" aria-hidden="true">→</span>
+          </Link>
+          <a className="btn btn-paper on-dark" href="mailto:hello@crescentstables.com">
+            Get in touch
+          </a>
+        </div>
+      </div>
 
-        <div className="mt-[var(--space-lg)] border-t border-[#8BAF8B]/30 pt-[var(--space-md)]">
-          <p className="text-center text-sm text-[#8BAF8B]">
-            &copy; {new Date().getFullYear()} Crescent Stables. All rights reserved.
+      <div className="wrap foot-grid">
+        <div>
+          <Link href="/" className="foot-brand" aria-label="Crescent Stables home">
+            <img className="foot-wordmark" src={fullWordmark} alt="Crescent Stables" />
+          </Link>
+          <p className="foot-blurb">
+            An equestrian space in Minnesota where you can show up exactly as you are and discover what you are capable of.
           </p>
         </div>
+        <nav aria-label="Footer">
+          <div className="mono">Quick links</div>
+          <ul>
+            <li><Link href="/experiences">Experiences</Link></li>
+            <li><Link href="/safety">Before You Come</Link></li>
+            <li><Link href="/about">About</Link></li>
+            <li><Link href="/experiences">Book a Session</Link></li>
+          </ul>
+        </nav>
+        <div>
+          <div className="mono">Get in touch</div>
+          <ul>
+            <li><a href="mailto:hello@crescentstables.com">hello@crescentstables.com</a></li>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noreferrer">Instagram</a></li>
+            <li>Minnesota, USA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="wrap foot-bar">
+        <div className="mono">© {new Date().getFullYear()} Crescent Stables. All rights reserved.</div>
+        <div className="mono">Minnesota, USA</div>
       </div>
     </footer>
   );

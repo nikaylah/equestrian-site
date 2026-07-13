@@ -1,159 +1,104 @@
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { upcomingEvents } from "@/data/events";
-import { useToast } from "@/hooks/use-toast";
+import { Link } from "wouter";
+
+const paths = [
+  ["Start here", "Never ridden before?", "Start with Beginner Riding Week. We spend the first days just getting comfortable."],
+  ["Go deeper", "Want to really slow down?", "Horsemanship Week is a full week at the barn, from the ground up."],
+  ["Get outside", "Already ridden a few times?", "Trail Experience gets you out on the trails with a small group."],
+];
+
+const sessions = [
+  ["February", "16–20", "Horsemanship Week", "Most popular", "chip-khaki", "Five days of groundwork and riding basics. We take our time. Good if you want a full week to just be around the horses.", "3 of 6 spots left"],
+  ["March", "02–06", "Beginner Riding Week", "Beginner friendly", "chip-ox", "If you have never ridden before this is a good place to start. We spend the first couple days just getting comfortable.", "5 of 6 spots left"],
+  ["March", "14–15", "Trail Experience", "For adventurers", "chip-camel", "Two days on horseback out on the trails with a small group.", "4 of 6 spots left"],
+  ["April", "06–10", "Horsemanship Week", "Most popular", "chip-khaki", "Groundwork and riding over five days. Small group. We don't rush.", "6 of 6 spots left"],
+  ["April", "20–24", "Beginner Riding Week", "Beginner friendly", "chip-ox", "For people who have not ridden before. We go at your pace.", "6 of 6 spots left"],
+  ["May", "09–10", "Trail Experience", "For adventurers", "chip-camel", "Spring trail riding. Works best if you have ridden a few times.", "5 of 6 spots left"],
+];
 
 export default function Experiences() {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
-
-  const handleEmailSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "You are on the list",
-        description: "We will email you when new sessions are scheduled.",
-      });
-      setEmail("");
-    }
-  };
-
   return (
-    <div>
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-[600px] px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <h2 className="mb-[var(--space-sm)] text-2xl sm:text-3xl font-medium text-foreground">
-            Find your session.
-          </h2>
-          <p className="text-lg text-muted-foreground leading-[1.7]">
-            We run small group sessions throughout the year at trusted partner barns across Minnesota. Most women who come start with Beginner Riding Week — no experience needed.
-          </p>
-          <p className="mt-[var(--space-md)] text-center text-[#C05A35]">—</p>
-          <p className="mx-[var(--space-sm)] mt-[var(--space-xs)] text-[15px] italic text-foreground/70 leading-[1.7]">
-            Sessions take place at partner barns across Minnesota. We share the exact location once you sign up — we keep it this way to maintain a small, private environment.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-[720px] px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <div className="mx-auto max-w-[640px] border-y border-[#C05A35]/60 py-[var(--space-md)] text-center">
-            <div className="space-y-[var(--space-md)] text-[15px] leading-[1.7]">
-              <p>
-                <span className="font-semibold text-[#C05A35]">Never ridden before?</span>{" "}
-                Start with Beginner Riding Week
-              </p>
-              <p>
-                <span className="font-semibold text-[#C05A35]">
-                  Want to really slow down and connect?
-                </span>{" "}
-                Horsemanship Week is a full week at the barn
-              </p>
-              <p>
-                <span className="font-semibold text-[#C05A35]">
-                  Already ridden a few times?
-                </span>{" "}
-                Trail Experience gets you out on the trails
-              </p>
-            </div>
+    <>
+      <section className="xhero">
+        <div className="wrap xhero-grid">
+          <div>
+            <div className="eyebrow">Upcoming sessions · 2026</div>
+            <h1>Find your <span className="accent">session.</span></h1>
+            <p className="lead">
+              We run small group sessions throughout the year at trusted partner barns across Minnesota. Most people who come start with Beginner Riding Week. No experience needed.
+            </p>
           </div>
+          <aside className="privacy">
+            <span className="mono">A small, private environment</span>
+            <p><b>We share the exact location once you sign up.</b> Sessions take place at partner barns across Minnesota. We keep it this way on purpose.</p>
+          </aside>
         </div>
       </section>
 
-      {/* Page Header - spacious, simple */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-2xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <h1 
-            className="mb-[var(--space-md)] text-2xl sm:text-3xl font-semibold text-foreground"
-            data-testid="text-experiences-title"
-          >
-            Upcoming Sessions
-          </h1>
-          <p 
-            className="text-lg text-muted-foreground leading-[1.7]"
-            data-testid="text-experiences-subtitle"
-          >
-            Small groups. Slow pace. A space where you can actually breathe.
-          </p>
-        </div>
-      </section>
-
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-[720px] px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <div className="space-y-[var(--space-md)]">
-            {upcomingEvents.map((event) => (
-              <article
-                key={event.id}
-                className="rounded-xl border border-[#E2D4C0]/70 border-l-[3px] border-l-[#C05A35] bg-[#FAF5EE] px-[var(--space-md)] py-[var(--space-md)] shadow-[0_10px_24px_rgba(74,48,32,0.06)]"
-              >
-                <p
-                  className="mb-[var(--space-xs)] text-[13px] text-[#C05A35]"
-                  data-testid={`text-event-date-${event.id}`}
-                >
-                  {event.dateLabel}
-                </p>
-                <h2
-                  className="mb-[var(--space-sm)] text-[22px] font-medium text-foreground"
-                  data-testid={`text-event-title-${event.id}`}
-                >
-                  {event.title}
-                </h2>
-                <p
-                  className="mb-[var(--space-md)] text-[1.0625rem] text-muted-foreground leading-[1.7]"
-                  data-testid={`text-event-description-${event.id}`}
-                >
-                  {event.description}
-                </p>
-                <p className="mb-[var(--space-md)] text-[13px] italic text-foreground/60">
-                  Pricing varies by session — we share all details when you reach out. No commitment required.
-                </p>
-                <div className="flex flex-col items-stretch gap-[var(--space-sm)] sm:flex-row sm:items-center sm:justify-between">
-                  <div className="min-h-6">
-                    {event.spotsLeft ? (
-                      <p
-                        className="text-[13px] italic text-foreground/60"
-                        data-testid={`text-event-spots-${event.id}`}
-                      >
-                        {event.spotsLeft} spots remaining
-                      </p>
-                    ) : null}
-                  </div>
-                  <Button className="w-full sm:w-auto" data-testid={`button-reserve-spot-${event.id}`}>
-                    Reserve Your Spot
-                  </Button>
-                </div>
-              </article>
+      <section className="picker">
+        <div className="wrap">
+          <div className="pick-grid">
+            {paths.map(([label, title, body]) => (
+              <Link href="/experiences" className="pick" key={title}>
+                <span className="mono">{label}</span>
+                <b>{title}</b>
+                <p>{body}</p>
+                <span className="go" aria-hidden="true">→</span>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Email Capture - quieter */}
-      <section className="bg-accent/10 py-[var(--space-xl)]">
-        <div className="mx-auto max-w-md px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <p className="mb-[var(--space-xs)] text-center text-foreground">
-            Not ready yet?
-          </p>
-          <p className="mb-[var(--space-md)] text-center text-muted-foreground">
-            We will reach out when new sessions open. No pressure.
-          </p>
-          <form onSubmit={handleEmailSubmit} className="flex flex-col gap-[var(--space-sm)] sm:flex-row">
-            <Input
-              type="email"
-              placeholder="Your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="flex-1"
-              data-testid="input-email-signup"
-            />
-            <Button type="submit" variant="outline" className="w-full sm:w-auto" data-testid="button-join-list">
-              Keep me posted
-            </Button>
+      <section className="sched">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <div className="eyebrow">The board</div>
+              <h2 className="h2" style={{ marginTop: 20 }}>Upcoming<br />sessions.</h2>
+            </div>
+            <p className="lead" style={{ maxWidth: 340, paddingBottom: 8 }}>
+              Small groups. Slow pace. A space where you can actually breathe.
+            </p>
+          </div>
+
+          <div className="board">
+            {sessions.map(([month, date, title, chip, chipClass, desc, spots]) => (
+              <article className="row" key={`${month}-${date}-${title}`}>
+                <div className="date"><span className="mono">{month}</span><b>{date}</b></div>
+                <div>
+                  <h3>{title} <span className={`chip ${chipClass}`}>{chip}</span></h3>
+                  <p className="desc">{desc}</p>
+                </div>
+                <div className="spots">{spots}</div>
+                <a className="btn btn-camel" href="mailto:hello@crescentstables.com?subject=Reserve%20a%20Crescent%20Stables%20session">
+                  Reserve <span className="arrow" aria-hidden="true">→</span>
+                </a>
+              </article>
+            ))}
+          </div>
+          <div className="board-note">
+            <span className="mono">Pricing varies by session. We share all details when you reach out.</span>
+            <span className="mono">No commitment required</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="notready">
+        <div className="wrap">
+          <div>
+            <h2>Not ready <span className="accent">yet?</span></h2>
+            <p>That's fine. We will reach out when new sessions open. No pressure, no spam, just a note when something new is on the calendar.</p>
+          </div>
+          <form action="mailto:hello@crescentstables.com" method="post" encType="text/plain">
+            <label className="field">
+              <span className="sr-only">Email address</span>
+              <input type="email" name="email" placeholder="Your email" required />
+              <button className="btn btn-camel" type="submit">Keep me posted</button>
+            </label>
+            <div className="mono" style={{ marginTop: 18, color: "rgba(244,238,222,.4)", fontSize: 10 }}>One email per season. Unsubscribe anytime.</div>
           </form>
         </div>
       </section>
-    </div>
+    </>
   );
 }

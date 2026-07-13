@@ -1,187 +1,174 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
-import { womenExperiences, kidsTeensExperiences } from "@/data/experiences";
 import heroImage from "../../../images/image1.jpeg";
+import horseClose from "../../../images/image2.jpeg";
+import groomingImage from "../../../images/image3.jpeg";
+import trailImage from "../../../images/image4.jpeg";
 
-function ExperienceCard({ 
-  experience, 
-  variant = "primary" 
-}: { 
-  experience: typeof womenExperiences[0]; 
-  variant?: "primary" | "secondary";
-}) {
-  const isSecondary = variant === "secondary";
-  const homeButtonText =
-    experience.title === "Beginner Riding Week" ? "Start here" : "See dates";
-  
-  return (
-    <Card
-      className={`group flex h-full flex-col overflow-visible hover-elevate active-elevate-2 transition-all duration-300 ${
-        isSecondary
-          ? "border-accent/30"
-          : "border-[#E2D4C0]/60 border-t-[3px] border-t-[#C05A35] bg-[#FAF5EE]"
-      }`}
-    >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-lg">
-        <img
-          src={experience.image}
-          alt={experience.title}
-          className={`h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 ${isSecondary ? "saturate-[0.6] brightness-[1.05]" : ""}`}
-          loading="lazy"
-        />
-        {isSecondary && (
-          <Badge 
-            variant="secondary" 
-            className="absolute right-3 top-3 bg-background/90 backdrop-blur-sm text-muted-foreground"
-            data-testid={`badge-coming-soon-${experience.id}`}
-          >
-            2026
-          </Badge>
-        )}
-      </div>
-      <CardContent className={`flex flex-1 flex-col px-[var(--space-md)] pb-[var(--space-md)] pt-[var(--space-sm)] ${isSecondary ? "bg-muted/20" : ""}`}>
-        <h3 
-          className={`mb-[var(--space-xs)] text-[20px] font-medium ${isSecondary ? "text-muted-foreground" : "text-foreground"}`}
-          data-testid={`text-experience-title-${experience.id}`}
-        >
-          {experience.title}
-        </h3>
-        <p className="mb-[var(--space-md)] flex-1 text-muted-foreground text-[1.0625rem] leading-[1.7]">
-          {experience.description}
-        </p>
-        {isSecondary ? (
-          <>
-            <Button 
-              variant="outline"
-              className="w-full text-muted-foreground"
-              disabled
-              data-testid={`button-notify-me-${experience.id}`}
-            >
-              Join Interest List
-            </Button>
-            <p className="mt-[var(--space-xs)] text-xs text-muted-foreground/75">
-              Crescent Stables is a women owned, women focused space.
-            </p>
-          </>
-        ) : (
-          <Link href={experience.buttonLink}>
-            <Button 
-              variant="outline"
-              className="mx-auto w-auto border-[#C05A35] bg-transparent text-[#C05A35] hover:bg-transparent hover:text-[#C05A35]"
-              data-testid={`button-${homeButtonText.toLowerCase().replace(" ", "-")}-${experience.id}`}
-            >
-              {homeButtonText}
-            </Button>
-          </Link>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
+const experiences = [
+  {
+    title: "Horsemanship Week",
+    label: "Most popular",
+    chip: "chip-khaki",
+    days: "5 days",
+    body: "The full picture. Learn how horses think, communicate, and move, from the ground up. This is where real understanding begins.",
+    image: groomingImage,
+    alt: "A horse being gently groomed with a brush",
+  },
+  {
+    title: "Beginner Riding Week",
+    label: "Beginner friendly",
+    chip: "chip-ox",
+    days: "5 days",
+    body: "Your first time in the saddle, done right. Walk, trot, build real confidence on horseback over five intentional days.",
+    image: horseClose,
+    alt: "A beginner rider smiling behind a horse",
+    offset: true,
+  },
+  {
+    title: "Trail Experience",
+    label: "For adventurers",
+    chip: "chip-camel",
+    days: "Half or full day",
+    body: "Ride through nature with a small group. The best way to understand horses is to go somewhere with them.",
+    image: trailImage,
+    alt: "A rider walking beside a horse on a quiet road",
+  },
+];
+
+const principles = [
+  ["Groundwork first", "Connection before riding. We start on the ground, where real understanding happens."],
+  ["Safety always", "Every horse is carefully vetted. Groups stay small so you actually learn."],
+  ["Your own pace", "No pressure to advance faster than you are ready. The horse sets the curriculum."],
+];
+
+const testimonials = [
+  ["I showed up terrified of horses. By day three I was cantering on my own. I have never felt more capable in my life.", "Fatima A.", "Beginner Riding Week"],
+  ["I was so relieved to find a space where I could actually relax. The environment here made all the difference for me.", "Maryam K.", "Horsemanship Week"],
+  ["This is not a riding school. It is something else entirely. I left understanding myself better than when I arrived.", "Sarah J.", "Trail Experience"],
+];
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero - Dark overlay on image, left-aligned for less perfection */}
-      <section className="relative flex min-h-[50vh] md:min-h-[60vh] items-end overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Horse standing in barn aisle"
-            className="h-full w-full object-cover object-[center_28%]"
-          />
-          <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.45),rgba(0,0,0,0.2))]" />
-        </div>
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-[var(--space-sm)] pb-[var(--space-lg)] sm:px-[var(--space-md)] md:pb-[var(--space-xl)]">
-          <h1 
-            className="max-w-[11ch] text-[32px] leading-[1.1] sm:max-w-2xl sm:text-4xl md:text-[48px] font-semibold text-white"
-            data-testid="text-hero-title"
-          >
-            A space that was made for you.
+    <>
+      <section className="hero">
+        <div className="wrap">
+          <div className="eyebrow">Beginner riding weeks · Minnesota</div>
+          <h1>
+            A space that was <span className="accent">made</span> for you.
           </h1>
-          <p 
-            className="mt-[var(--space-sm)] text-base md:text-lg text-white/80 max-w-lg"
-            data-testid="text-hero-subtitle"
-          >
-            Women only sessions at trusted barns across Minnesota. No experience needed.
-          </p>
-          <Link href="/experiences">
-            <Button className="mt-[var(--space-md)]" data-testid="button-hero-see-upcoming">
-              See What's Coming Up
-            </Button>
-          </Link>
-        </div>
-      </section>
-
-      {/* Breathing space - a quiet moment */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-[680px] px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <p className="text-[19px] text-muted-foreground leading-[1.7]">
+          <p className="lead">
             We run beginner friendly riding weeks at a few barns we trust. You don't need any experience. Most people who come are trying this for the first time.
           </p>
-          <p className="mt-[var(--space-md)] font-serif text-[22px] leading-[1.7] text-[#C05A35]">
-            This is not a riding school. It is a space to slow down.
+          <div className="hero-cta">
+            <Link className="btn btn-camel btn-raise" href="/experiences">
+              Book a session <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+            <Link className="btn btn-paper" href="/safety">
+              How it works
+            </Link>
+          </div>
+          <div className="hero-meta mono">Small groups · No experience needed · The horse sets the pace</div>
+        </div>
+        <div className="wrap hero-frame">
+          <figure className="photo-frame" style={{ paddingTop: "42%" }}>
+            <img src={heroImage} alt="Woman smiling while sitting on a horse" loading="eager" style={{ objectPosition: "center 35%" }} />
+            <figcaption className="ph-inner"><span className="ph-tag">Session one — groundwork</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <div className="marq" aria-hidden="true">
+        <span className="mono">
+          Slow down <span className="star">✶</span> No experience needed <span className="star">✶</span> Small groups <span className="star">✶</span> The horse sets the pace <span className="star">✶</span> Beginner friendly <span className="star">✶</span> Slow down <span className="star">✶</span> No experience needed
+        </span>
+      </div>
+
+      <section className="quote">
+        <div className="wrap">
+          <span className="star">✶</span>
+          <p className="q">
+            This is not a riding school.<br />It is a space to <span className="accent">slow down.</span>
           </p>
         </div>
       </section>
 
-      <section className="bg-[#EFE6D8] py-[var(--space-xl)]">
-        <div className="mx-auto max-w-5xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <div className="grid grid-cols-1 gap-[var(--space-md)] md:grid-cols-3">
-            {[
-              ["The expectation", "There is none. Come as you are."],
-              ["The pace", "No rushing. Ever."],
-              ["The group", "Small enough that you always feel seen."],
-            ].map(([label, description]) => (
-              <div
-                key={label}
-                className="space-y-[var(--space-md)] text-center md:text-left"
-              >
-                <p className="text-[11px] uppercase tracking-[2px] text-[#C05A35]">{label}</p>
-                <p className="text-[1.0625rem] leading-[1.7] text-foreground">{description}</p>
-              </div>
+      <section className="begin">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <div className="eyebrow">Experiences</div>
+              <h2 className="h2" style={{ marginTop: 20 }}>Three ways<br />to begin.</h2>
+            </div>
+            <Link className="btn btn-paper" href="/experiences">
+              View all sessions <span className="arrow" aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div className="begin-grid">
+            {experiences.map((experience) => (
+              <article key={experience.title} className={`bcard ${experience.offset ? "offset" : ""}`}>
+                <figure className="photo-frame im" style={{ paddingTop: "82%" }}>
+                  <img src={experience.image} alt={experience.alt} loading="lazy" />
+                </figure>
+                <div className="meta">
+                  <span className={`chip ${experience.chip}`}>{experience.label}</span>
+                  <span className="days">{experience.days}</span>
+                </div>
+                <h3>{experience.title}</h3>
+                <p>{experience.body}</p>
+                <Link className="tlink" href="/experiences">
+                  Reserve a spot <span className="arrow" aria-hidden="true">→</span>
+                </Link>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* For Women - tighter, focused */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-7xl px-[var(--space-sm)] sm:px-[var(--space-md)]">
-          <div className="grid gap-[var(--space-md)] md:grid-cols-2 lg:grid-cols-3">
-            {womenExperiences.map((experience) => (
-              <ExperienceCard 
-                key={experience.id} 
-                experience={experience} 
-                variant="primary"
-              />
+      <section className="manif">
+        <div className="wrap">
+          <div>
+            <div className="eyebrow">Our philosophy</div>
+            <h2 style={{ marginTop: 24 }}>
+              Horses don't care about your resume. <span className="accent">They respond to who you actually are.</span>
+            </h2>
+            <div className="mtext">
+              <p>We are not trying to turn you into a competition rider. That is not the point. Some people come once and that is enough. Others keep coming back. There is no agenda here.</p>
+              <p>What we offer is simple: a space where you can show up exactly as you are, work with a 1,200-pound animal who tells the truth, and find out what you are capable of.</p>
+            </div>
+          </div>
+          <div className="pr-card">
+            {principles.map(([title, body], index) => (
+              <article className="pr-item" key={title}>
+                <div className="row1"><b>{title}</b><span className="mono">{String(index + 1).padStart(2, "0")}</span></div>
+                <p>{body}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Closing - spacious, unhurried */}
-      <section className="py-[var(--space-xl)]">
-        <div className="mx-auto max-w-xl px-[var(--space-sm)] text-center sm:px-[var(--space-md)]">
-          <div className="mx-auto mb-[var(--space-sm)] h-px w-[60px] bg-[#C05A35]" />
-          <p className="text-[14px] text-[#C05A35]">
-            Women led · Women only · Minnesota
-          </p>
-          <h2 className="mb-[var(--space-sm)] mt-[var(--space-md)] text-[40px] font-medium leading-tight text-foreground" data-testid="text-cta-title">
-            Whenever you are ready, we will be here.
-          </h2>
-          <p className="mb-[var(--space-md)] text-muted-foreground" data-testid="text-cta-subtitle">
-            Take a look at what is coming up.
-          </p>
-          <Link href="/experiences">
-            <Button data-testid="button-view-upcoming-events">
-              Find Your Session
-            </Button>
-          </Link>
+      <section className="voices">
+        <div className="wrap">
+          <div className="sec-head">
+            <div>
+              <div className="eyebrow">In their words</div>
+              <h2 className="h2" style={{ marginTop: 20 }}>What people<br />take home.</h2>
+            </div>
+          </div>
+          <div className="v-grid">
+            {testimonials.map(([quote, name, detail], index) => (
+              <article className={`vcard ${index === 1 ? "hot" : ""}`} key={name}>
+                <span className="vq">”</span>
+                <p>{quote}</p>
+                <div className="vwho">
+                  <div className="av" aria-hidden="true" />
+                  <div><b>{name}</b><span>{detail}</span></div>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
